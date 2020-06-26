@@ -317,14 +317,83 @@ class BinaryTree<T> {
 
 }
 
+
+class BinarySearchTree extends BinaryTree<Integer>
+{
+	public void insert(Integer insertValue)
+	{
+		if(rootNode == null)
+		{
+			startWithRoot(insertValue);
+			return;
+		}
+		BinaryNode<Integer> ptr = rootNode;
+		BinaryNode<Integer> insertAtNode = null;
+		while(ptr != null)
+		{
+	        // If key already exists, return  
+	        if (insertValue == ptr.value)  
+	        {  
+	            System.out.printf("Duplicate Key !\n");  
+	            return;  
+	        }  
+	        
+	        insertAtNode = ptr;
+	        
+	        if(insertValue < ptr.value)
+	        {
+	        	if (ptr . isLeftThreadedNode == false)  
+	                ptr = ptr . leftChild;  
+	            else
+	                break;  
+	        }
+			
+	     // Moving on right subtree.  
+	        else
+	        {  
+	            if (ptr.isRightThreadedNode == false)  
+	                ptr = ptr . rightChild;  
+	            else
+	                break;  
+	        }  
+			
+			
+		}
+		
+		
+		if(insertValue < insertAtNode.value)
+		{
+			insertAtNode.addLeftChild(insertValue);
+		}
+		else
+		{
+			insertAtNode.addRightChild(insertValue);
+		}
+	}
+}
 public class BinaryTree_Main {
 	static Boolean right = true;
 	static Boolean left = false;
 
 	public static void main(String args[]) {
-		CharTreeExample();
+		//CharTreeExample();
 		// IntTreeExample();
 		// CharTreeExample2();
+		BSTIntDemo();
+	}
+	
+	
+	static void BSTIntDemo()
+	{
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.insert(20);
+		bst.insert(10);
+		bst.insert(30);
+		bst.insert(5);  
+		bst.insert( 16);  
+		bst.insert( 14);  
+		bst.insert(17);  
+		bst.insert(13);  
 	}
 
 	static void CharTreeExample() {
