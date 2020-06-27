@@ -39,7 +39,7 @@ class BinaryTree<T> {
 	
 	BinaryTree()
 	{
-		comparator = (obj1,obj2) -> compareTo(obj1,obj2);
+		comparator = (obj1,obj2) -> castAndCompareTo(obj1,obj2);
 	}
 	BinaryTree(BiFunction<T, T, Integer> input)
 	{
@@ -160,7 +160,7 @@ class BinaryTree<T> {
 	
 	
 	
-	public static Integer compareTo(Object obj1, Object obj2) {
+	public static Integer castAndCompareTo(Object obj1, Object obj2) {
 		if (obj1 != null && obj2 != null) {
 			if (obj1.getClass().equals(obj2.getClass())) {
 				if (obj1 instanceof String) {
