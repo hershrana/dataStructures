@@ -18,7 +18,7 @@ public class BinaryTreesMain {
 		bInt.insert(17);
 		bInt.insert(13);
 		
-		BinaryTree<Integer> bIntLambda = new BinaryTree<Integer>((Integer a,Integer b) -> a.compareTo(b));
+		BinaryTree<Integer> bIntLambda = new BinaryTree<Integer>((a,b) -> a.compareTo(b));
 		System.out.println("Lambda Outputs");
 		bIntLambda.insert(20);
 		bIntLambda.insert(10);
@@ -28,6 +28,19 @@ public class BinaryTreesMain {
 		bIntLambda.insert(14);
 		bIntLambda.insert(17);
 		bIntLambda.insert(13);
+		
+		
+		
+		BinaryTree<Character> bCharT = new BinaryTree<Character>((a,b) -> a.compareTo(b));
+		System.out.println("Lambda Outputs");
+		bCharT.insert('H');
+		bCharT.insert('K');
+		bCharT.insert('P');
+		bCharT.insert('A');
+		bCharT.insert('C');
+		bCharT.insert('Z');
+		bCharT.insert('G');
+		bCharT.insert('h');
 	}
 }
 
