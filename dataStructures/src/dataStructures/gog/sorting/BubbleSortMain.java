@@ -1,10 +1,12 @@
 /*
  * 
  * https://www.geeksforgeeks.org/bubble-sort/
+ * https://www.studytonight.com/data-structures/bubble-sort
  * 
- * best case
- * average case
- * worst case
+ * worst case		-> O(n^2)
+ * best case		-> O(n)		 array is sorted
+ * average case		-> O(n^2)
+ * space			-> O(1)      only 1 temp variable need for swapping
  * 
  * improvements
  * 
@@ -57,7 +59,7 @@ class BubbleSortAlgo
 {
 	void bubbleSort(int arr[])
 	{
-		int arrLength = arr.length;
+		int arrLength = arr.length,  temp = -1;
 		boolean improvement_Switched = true;
 		//for(int pass = 0 ; pass < (arrLength-1) ; pass ++) //without improvement
 		for(int pass = 0 ; pass < (arrLength-1) && improvement_Switched ; pass ++) //with improvement
@@ -71,7 +73,7 @@ class BubbleSortAlgo
 				System.out.print("\t\t"+Arrays.toString(arr));
 				if(arr[inner] > arr[inner+1])
 				{
-					int temp = arr[inner];
+					temp = arr[inner];
 					arr[inner] = arr[inner+1];
 					arr[inner+1] = temp;
 					display_swapped = true;
