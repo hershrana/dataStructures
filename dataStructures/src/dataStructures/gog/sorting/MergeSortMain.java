@@ -19,6 +19,203 @@ The following diagram from wikipedia shows the complete merge sort process for a
 
 package dataStructures.gog.sorting;
 
-public class MergeSortMain {
+import java.util.Arrays;
 
+public class MergeSortMain {
+	// Driver method 
+    public static void main(String args[]) 
+    { 
+    	
+        int arr[] =  {25,57,48,37,12,92,86,33};//{ 12, 11, 13, 5, 6, 7 }; 
+  
+        System.out.println("Given Array"); 
+        System.out.println(Arrays.toString(arr));
+  /*
+        MergeSortCopied ob = new MergeSortCopied(); 
+        ob.sort(arr, 0, arr.length-1);
+        
+        */
+        MergeSort ob = new MergeSort(); 
+        ob.sort(arr);
+  
+        System.out.println("\nSorted array"); 
+        System.out.println(Arrays.toString(arr));
+        
+        
+        
+        /*
+        
+        int arr1[] = { 25,57,48,37,12,92,86,33 }; 
+        
+        System.out.println("Given Array"); 
+        System.out.println(Arrays.toString(arr1));
+  
+        new MergeSort().sort(arr1);
+  
+        System.out.println("\nSorted array"); 
+        System.out.println(Arrays.toString(arr1));
+        
+        */
+    } 
+    
+    
+ }
+
+class MergeSort
+{
+	void sort(int input[])
+	{
+		sort(input, 0 , input.length -1 );
+	}
+	void sort(int input[], int left ,int right)
+	{
+		if( left < right)
+		{
+			int middle = (right+left)/2;
+			
+			sort(input,left,middle);
+			sort(input,middle+1,right);
+			
+			mergeArray(input, left, middle, right);
+		}
+	}
+	
+	// merge two arrays arr[0 to middle ] and arr[middle+1 to right]
+	void mergeArray(int arr[],int left , int middle , int right)
+	{
+		int sizeOf_A1 = middle-left+1;
+		int sizeOf_A2 = right - middle;
+		
+		//int startof_A1 = left ;
+		
+		int startof_A2 = middle+1 ;
+		
+		//copy input array to two different array
+		int[] A1 = new int[sizeOf_A1];
+		int[] A2 = new int[sizeOf_A2];
+		
+		for(int current = 0 ; current < sizeOf_A1 ; current++)
+			A1[current] = arr[left+current];
+		
+		for(int current = 0 ; current < sizeOf_A2 ; current++)
+			A2[current] = arr[current+startof_A2];
+		
+		 int current_A1=0,current_A2=0,current_merge=left;
+		
+		//for(;((current_A1 < sizeOf_A1) && (current_A2 < sizeOf_A2) );current_merge++)
+		while( (current_A1 < sizeOf_A1) && (current_A2 < sizeOf_A2) )
+		{
+			// search and assign arr[current_merge]
+			if(A1[current_A1] <= A2[current_A2])
+			{
+				arr[current_merge ++ ] = A1[current_A1 ++];
+				//current_A1 ++;
+			}
+			else
+			{
+				arr[current_merge ++ ] = A2[current_A2 ++];
+				//current_A2++;
+			}
+		}
+		
+		///copy remaining elements
+		while(current_A1 < sizeOf_A1)
+		{
+			arr[current_merge ++ ] = A1[current_A1 ++];
+			// current_A1 ++;current_merge++;
+		}
+		
+		while(current_A2 < sizeOf_A2)
+		{
+			arr[current_merge ++ ] = A2[current_A2 ++];
+			////current_A2 ++;current_merge++;
+		}
+		
+		System.out.println(" left "+left+",  middle "+middle+" ,  right "+right+"  --> "+Arrays.toString(arr));
+	}
+	
 }
+
+
+
+//class MergeSortCopied { 
+//    // Merges two subarrays of arr[]. 
+//    // First subarray is arr[l..m] 
+//    // Second subarray is arr[m+1..r] 
+//    void merge(int arr[], int left, int middle, int right) 
+//    { 
+//        // Find sizes of two subarrays to be merged 
+//        int sizeOf_A1 = middle - left + 1; 
+//        int sizeOf_A2 = right - middle; 
+//  
+//        /* Create temp arrays */
+//        int A1[] = new int[sizeOf_A1]; 
+//        int A2[] = new int[sizeOf_A2]; 
+//  
+//        /*Copy data to temp arrays*/
+//        for (int i = 0; i < sizeOf_A1; ++i) 
+//            A1[i] = arr[left + i]; 
+//        for (int j = 0; j < sizeOf_A2; ++j) 
+//            A2[j] = arr[middle + 1 + j]; 
+//  
+//        /* Merge the temp arrays */
+//  
+//        // Initial indexes of first and second subarrays 
+//        int current_A1 = 0, current_A2 = 0; 
+//  
+//        // Initial index of merged subarry array 
+//        int current_Merge = left; 
+//        while (current_A1 < sizeOf_A1 && current_A2 < sizeOf_A2) { 
+//            if (A1[current_A1] <= A2[current_A2]) { 
+//                arr[current_Merge] = A1[current_A1]; 
+//                current_A1++; 
+//            } 
+//            else { 
+//                arr[current_Merge] = A2[current_A2]; 
+//                current_A2++; 
+//            } 
+//            current_Merge++; 
+//        } 
+//  
+//        /* Copy remaining elements of L[] if any */
+//        while (current_A1 < sizeOf_A1) { 
+//            arr[current_Merge] = A1[current_A1]; 
+//            current_A1++; 
+//            current_Merge++; 
+//        } 
+//  
+//        /* Copy remaining elements of R[] if any */
+//        while (current_A2 < sizeOf_A2) { 
+//            arr[current_Merge] = A2[current_A2]; 
+//            current_A2++; 
+//            current_Merge++; 
+//        } 
+//    } 
+//  
+//    // Main function that sorts arr[l..r] using 
+//    // merge() 
+//    void sort(int arr[], int left, int right) 
+//    { 
+//        if (left < right) { 
+//            // Find the middle point 
+//            int middle = (left + right) / 2; 
+//  
+//            // Sort first and second halves 
+//            sort(arr, left, middle); 
+//            sort(arr, middle + 1, right); 
+//  
+//            // Merge the sorted halves 
+//            merge(arr, left, middle, right); 
+//        } 
+//    } 
+//  
+//    /* A utility function to print array of size n */
+//    static void printArray(int arr[]) 
+//    { 
+//        int n = arr.length; 
+//        for (int i = 0; i < n; ++i) 
+//            System.out.print(arr[i] + " "); 
+//        System.out.println(); 
+//    
+//    }
+//}
