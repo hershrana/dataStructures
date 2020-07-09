@@ -26,7 +26,7 @@ public class MergeSortMain {
     public static void main(String args[]) 
     { 
     	
-        int arr[] =  {25,57,48,37,12,92,86,33};//{ 12, 11, 13, 5, 6, 7 }; 
+        int arr[] =  {38,27,43,3,9,82,10};//{25,57,48,37,12,92,86,33};//{ 12, 11, 13, 5, 6, 7 }; 
   
         System.out.println("Given Array"); 
         System.out.println(Arrays.toString(arr));
@@ -81,57 +81,71 @@ class MergeSort
 	}
 	
 	// merge two arrays arr[0 to middle ] and arr[middle+1 to right]
-	void mergeArray(int arr[],int left , int middle , int right)
+	void mergeArray(int input[],int left , int middle , int right)
 	{
+		// 1 - make two temp array a1 and a2
+		// 2 - copy to temp array
+		// 3-  compare and add from temp to input
+		// 4 - add remaining to input
+		
+		
+		
+		// 1 - make two temp array a1 and a2
+		
+		// these are for better code readability only they can be calculated on the fly
 		int sizeOf_A1 = middle-left+1;
 		int sizeOf_A2 = right - middle;
-		
-		//int startof_A1 = left ;
-		
+		int startof_A1 = left ;
 		int startof_A2 = middle+1 ;
-		
 		//copy input array to two different array
 		int[] A1 = new int[sizeOf_A1];
 		int[] A2 = new int[sizeOf_A2];
 		
+		
+		
+		
+		// 2 - copy to temp array
+		
 		for(int current = 0 ; current < sizeOf_A1 ; current++)
-			A1[current] = arr[left+current];
+			A1[current] = input[startof_A1+current];
 		
 		for(int current = 0 ; current < sizeOf_A2 ; current++)
-			A2[current] = arr[current+startof_A2];
+			A2[current] = input[current+startof_A2];
 		
-		 int current_A1=0,current_A2=0,current_merge=left;
 		
-		//for(;((current_A1 < sizeOf_A1) && (current_A2 < sizeOf_A2) );current_merge++)
+		
+		
+		// 3-  compare and add from temp to input
+		int current_A1=0,current_A2=0,current_merge=startof_A1;
 		while( (current_A1 < sizeOf_A1) && (current_A2 < sizeOf_A2) )
 		{
 			// search and assign arr[current_merge]
 			if(A1[current_A1] <= A2[current_A2])
 			{
-				arr[current_merge ++ ] = A1[current_A1 ++];
+				input[current_merge ++ ] = A1[current_A1 ++];
 				//current_A1 ++;
 			}
 			else
 			{
-				arr[current_merge ++ ] = A2[current_A2 ++];
+				input[current_merge ++ ] = A2[current_A2 ++];
 				//current_A2++;
 			}
 		}
 		
-		///copy remaining elements
+		// 4 - add remaining to input
 		while(current_A1 < sizeOf_A1)
 		{
-			arr[current_merge ++ ] = A1[current_A1 ++];
+			input[current_merge ++ ] = A1[current_A1 ++];
 			// current_A1 ++;current_merge++;
 		}
 		
 		while(current_A2 < sizeOf_A2)
 		{
-			arr[current_merge ++ ] = A2[current_A2 ++];
+			input[current_merge ++ ] = A2[current_A2 ++];
 			////current_A2 ++;current_merge++;
 		}
 		
-		System.out.println(" left "+left+",  middle "+middle+" ,  right "+right+"  --> "+Arrays.toString(arr));
+		System.out.println(" left "+left+",  middle "+middle+" ,  right "+right+"  --> "+Arrays.toString(input));
 	}
 	
 }
