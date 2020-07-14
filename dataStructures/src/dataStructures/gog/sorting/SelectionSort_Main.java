@@ -64,8 +64,8 @@ class SelectionSort
 	{
 		for(int outer = 0 ; outer < input.length ; outer ++)
 		{
-			int smallest = input[outer];
-			int smallestIndex = outer;
+			int smallest = input[outer];// use this in case you are sorting linked list
+			int smallestIndex = outer; //use this in case you are using array is used i.e. constant access time and there is space complexity
 			boolean newSmallestFound = false;
 			for (int inner = (outer+1) ; inner < input.length ; inner++)
 			{
