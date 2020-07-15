@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.function.BiFunction;
 
 
-class BinaryTree_Array_Node<T>
+/*class BinaryTree_Array_Node<T>
 {
 	T info;
 	boolean inUse =false;
@@ -31,19 +31,38 @@ class BinaryTree_Array_Node<T>
 	{
 		return info.toString();
 	}
-}
+}*/
 public class BinaryTree_Array<T> {
 	int numberOfInputs = 10;
 	int calc_MAXSTACK;
 	BinaryTree_Array_Node<T>[] array ;
 	
+	public BinaryTree_Array_Node<T>[] getArray() {
+		return array;
+	}
+
+	public T getInfoAtIndex(int atIndex) {
+		return array[atIndex].getInfo();
+	}
+	
+	public void setArray(BinaryTree_Array_Node<T>[] array) {
+		this.array = array;
+	}
+
+	public BiFunction<T, T, Integer> getComparator() {
+		return comparator;
+	}
+
+	public void setComparator(BiFunction<T, T, Integer> comparator) {
+		this.comparator = comparator;
+	}
 	// code modularity
 	BiFunction<T, T, Integer> comparator;
 	
 	//extra variable for code 
-	int rootIndex = 0;
-	int rightOffset = 2;
-	int leftOffset = 1;
+	public int rootIndex = 0;
+	public int rightOffset = 2;
+	public int leftOffset = 1;
 	private int calculateArraySize()
 	{
 		int n = (2*numberOfInputs)+2;
@@ -204,7 +223,7 @@ public class BinaryTree_Array<T> {
 	
 	public StringBuffer inOrderTraversal()
 	{
-		return inOrderTraversal(rootIndex,new StringBuffer());
+		return new StringBuffer("INORDER -> ").append(inOrderTraversal(rootIndex,new StringBuffer()));
 	}
 	
 	
