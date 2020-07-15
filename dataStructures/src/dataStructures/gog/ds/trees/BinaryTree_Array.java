@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.function.BiFunction;
 
 
-class BinaryTree_Stack_Node<T>
+class BinaryTree_Array_Node<T>
 {
 	T info;
 	boolean inUse =false;
@@ -18,13 +18,13 @@ class BinaryTree_Stack_Node<T>
 	public boolean isInUse() {
 		return inUse;
 	}
-	public BinaryTree_Stack_Node(T info) {
+	public BinaryTree_Array_Node(T info) {
 		super();
 		this.info = info;
 		this.inUse = true;
 	}
 	
-	public BinaryTree_Stack_Node() {
+	public BinaryTree_Array_Node() {
 		super();
 	}
 	public String toString()
@@ -32,10 +32,10 @@ class BinaryTree_Stack_Node<T>
 		return info.toString();
 	}
 }
-public class BinaryTree_Stack<T> {
+public class BinaryTree_Array<T> {
 	int numberOfInputs = 10;
 	int calc_MAXSTACK;
-	BinaryTree_Stack_Node<T>[] array ;
+	BinaryTree_Array_Node<T>[] array ;
 	
 	// code modularity
 	BiFunction<T, T, Integer> comparator;
@@ -51,46 +51,46 @@ public class BinaryTree_Stack<T> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public BinaryTree_Stack(int MAXSTACK,BiFunction<T, T, Integer> comparatorLambda)
+	public BinaryTree_Array(int MAXSTACK,BiFunction<T, T, Integer> comparatorLambda)
 	{
 		comparator = comparatorLambda;
 		this.numberOfInputs = MAXSTACK;
 		calc_MAXSTACK = calculateArraySize();
-		this.array = new BinaryTree_Stack_Node[calc_MAXSTACK];
+		this.array = new BinaryTree_Array_Node[calc_MAXSTACK];
 	}
 	
 	@SuppressWarnings("unchecked")
-	public BinaryTree_Stack(BiFunction<T, T, Integer> comparatorLambda)
+	public BinaryTree_Array(BiFunction<T, T, Integer> comparatorLambda)
 	{
 		comparator = comparatorLambda;
 		calc_MAXSTACK = calculateArraySize();
-		this.array = new BinaryTree_Stack_Node[calc_MAXSTACK];
+		this.array = new BinaryTree_Array_Node[calc_MAXSTACK];
 	}
 	
 	@SuppressWarnings("unchecked")
-	public BinaryTree_Stack(int MAXSTACK)
+	public BinaryTree_Array(int MAXSTACK)
 	{
 		comparator = (obj1,obj2) -> castAndCompareTo(obj1,obj2);
 		this.numberOfInputs = MAXSTACK;
 		calc_MAXSTACK = calculateArraySize();
-		this.array = new BinaryTree_Stack_Node[calc_MAXSTACK];
+		this.array = new BinaryTree_Array_Node[calc_MAXSTACK];
 	}
 	
 	@SuppressWarnings("unchecked")
-	public BinaryTree_Stack()
+	public BinaryTree_Array()
 	{
 		comparator = (obj1,obj2) -> castAndCompareTo(obj1,obj2);
 		calc_MAXSTACK = calculateArraySize();
-		this.array = new BinaryTree_Stack_Node[calc_MAXSTACK];
+		this.array = new BinaryTree_Array_Node[calc_MAXSTACK];
 	}
 	
-	public BinaryTree_Stack_Node<T> makeTree(T info)
+	public BinaryTree_Array_Node<T> makeTree(T info)
 	{
-		array[rootIndex] = new BinaryTree_Stack_Node<T>(info);
+		array[rootIndex] = new BinaryTree_Array_Node<T>(info);
 		return array[rootIndex];
 	}
 	
-	public BinaryTree_Stack_Node<T> getRootNode()
+	public BinaryTree_Array_Node<T> getRootNode()
 	{
 		return array[rootIndex];
 	}
@@ -126,7 +126,7 @@ public class BinaryTree_Stack<T> {
 			return;
 		}
 		if(array[newRightIndex] == null)
-			array[newRightIndex] = new BinaryTree_Stack_Node<T>(rightValue);
+			array[newRightIndex] = new BinaryTree_Array_Node<T>(rightValue);
 		else if(! array[newRightIndex].isInUse())
 		{
 			array[newRightIndex].setInfo(rightValue);
@@ -146,7 +146,7 @@ public class BinaryTree_Stack<T> {
 					return;
 				}
 				if(array[newLeftIndex] == null)
-					array[newLeftIndex] = new BinaryTree_Stack_Node<T>(leftValue);
+					array[newLeftIndex] = new BinaryTree_Array_Node<T>(leftValue);
 				else if(! array[newLeftIndex].isInUse())
 				{
 					array[newLeftIndex].setInfo(leftValue);
@@ -169,10 +169,10 @@ public class BinaryTree_Stack<T> {
 					return ((String) obj1).compareTo((String) obj2);
 				}
 				Object val1 =obj1 , val2 = obj2;
-				if(obj1 instanceof BinaryTree_Stack_Node)
+				if(obj1 instanceof BinaryTree_Array_Node)
 				{
-					val1 = ((BinaryTree_Stack_Node) obj1).getInfo();
-					val2 = ((BinaryTree_Stack_Node) obj2).getInfo();
+					val1 = ((BinaryTree_Array_Node) obj1).getInfo();
+					val2 = ((BinaryTree_Array_Node) obj2).getInfo();
 				}
 				if (val1 instanceof Integer) {
 					return ((Integer) val1).compareTo((Integer) val2);

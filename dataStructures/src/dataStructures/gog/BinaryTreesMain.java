@@ -42,7 +42,7 @@ public class BinaryTreesMain {
 		bCharT.insert('G');
 		bCharT.insert('h');*/
 		
-		BinarySearchTree_Stack<Integer> bInt = new BinarySearchTree_Stack<Integer>(8);
+		BinarySearchTree_Array<Integer> bInt = new BinarySearchTree_Array<Integer>(8);
 		bInt.insert(20);
 		bInt.insert(10);
 		bInt.insert(30);
@@ -55,7 +55,7 @@ public class BinaryTreesMain {
 		System.out.println(bInt.preOrderTraversal());
 		System.out.println(bInt.postOrderTraversal());
 		
-		BinarySearchTree_Stack<Integer> bIntLambda = new BinarySearchTree_Stack<Integer>(8,(a,b) -> a.compareTo(b));
+		BinarySearchTree_Array<Integer> bIntLambda = new BinarySearchTree_Array<Integer>(8,(a,b) -> a.compareTo(b));
 		System.out.println("Lambda Outputs");
 		bIntLambda.insert(20);
 		bIntLambda.insert(10);
@@ -71,7 +71,7 @@ public class BinaryTreesMain {
 		
 		
 		
-		BinarySearchTree_Stack<Character> bCharT = new BinarySearchTree_Stack<Character>(8,(a,b) -> a.compareTo(b));
+		BinarySearchTree_Array<Character> bCharT = new BinarySearchTree_Array<Character>(8,(a,b) -> a.compareTo(b));
 		System.out.println("Lambda Outputs");
 		bCharT.insert('H');
 		bCharT.insert('K');

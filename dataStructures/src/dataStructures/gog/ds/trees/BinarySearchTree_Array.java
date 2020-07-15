@@ -2,25 +2,25 @@ package dataStructures.gog.ds.trees;
 
 import java.util.function.BiFunction;
 
-public class BinarySearchTree_Stack<T> extends BinaryTree_Stack<T> {
+public class BinarySearchTree_Array<T> extends BinaryTree_Array<T> {
 	
 	
-	public BinarySearchTree_Stack() {
+	public BinarySearchTree_Array() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public BinarySearchTree_Stack(BiFunction<T, T, Integer> comparatorLambda) {
+	public BinarySearchTree_Array(BiFunction<T, T, Integer> comparatorLambda) {
 		super(comparatorLambda);
 		// TODO Auto-generated constructor stub
 	}
 
-	public BinarySearchTree_Stack(int MAXSTACK, BiFunction<T, T, Integer> comparatorLambda) {
+	public BinarySearchTree_Array(int MAXSTACK, BiFunction<T, T, Integer> comparatorLambda) {
 		super(MAXSTACK, comparatorLambda);
 		// TODO Auto-generated constructor stub
 	}
 
-	public BinarySearchTree_Stack(int MAXSTACK) {
+	public BinarySearchTree_Array(int MAXSTACK) {
 		super(MAXSTACK);
 		// TODO Auto-generated constructor stub
 	}
@@ -44,7 +44,7 @@ public class BinarySearchTree_Stack<T> extends BinaryTree_Stack<T> {
 			}
 			
 		}
-		array[currentIndex] = new BinaryTree_Stack_Node<T>(insertValue);
+		array[currentIndex] = new BinaryTree_Array_Node<T>(insertValue);
 		return currentIndex;
 	}
 }
