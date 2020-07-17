@@ -1,6 +1,8 @@
 package dataStructures.gog.ds.trees;
 
-public class BinaryTree_Array_Node<T>
+import dataStructures.common.interfaces.tree.BinaryNode;
+
+public class BinaryTree_Array_Node<T> implements BinaryNode<T>
 {
 	T info;
 	boolean inUse =false;

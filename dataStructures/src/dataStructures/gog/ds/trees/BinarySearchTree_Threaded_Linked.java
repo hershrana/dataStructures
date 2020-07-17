@@ -2,15 +2,15 @@ package dataStructures.gog.ds.trees;
 
 import java.util.function.BiFunction;
 
-public class BinaryTree<T> {
+public class BinarySearchTree_Threaded_Linked<T> {
 	Node<T> rootNode = null;
 	BiFunction<T, T, Integer> comparator;
 	
-	public BinaryTree()
+	public BinarySearchTree_Threaded_Linked()
 	{
 		comparator = (obj1,obj2) -> castAndCompareTo(obj1,obj2);
 	}
-	public BinaryTree(BiFunction<T, T, Integer> input)
+	public BinarySearchTree_Threaded_Linked(BiFunction<T, T, Integer> input)
 	{
 		comparator = input;
 	}
