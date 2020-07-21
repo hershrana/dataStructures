@@ -206,6 +206,10 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 		return (2*currentIndex)+leftOffset;
 	}
 	
+	public int getParentIndex(int currentIndex)
+	{
+		return ((currentIndex-1)/2);
+	}
 	public StringBuffer inOrderTraversal()
 	{
 		return new StringBuffer("INORDER -> ").append(inOrderTraversal(rootIndex,new StringBuffer()));
