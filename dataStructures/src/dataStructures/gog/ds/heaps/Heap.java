@@ -7,25 +7,25 @@ import dataStructures.common.interfaces.tree.BinaryNode;
 import dataStructures.gog.ds.trees.BinarySearchTree_Array;
 import dataStructures.gog.ds.trees.BinaryTree_Array_Node;
 
-public class MinHeap<T> extends BinarySearchTree_Array<T> implements HeapInterface<T> {
+public class Heap<T> extends BinarySearchTree_Array<T> implements HeapInterface<T> {
 
 	
-	public MinHeap() {
+	public Heap() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public MinHeap(BiFunction<T, T, Integer> comparatorLambda) {
+	public Heap(BiFunction<T, T, Integer> comparatorLambda) {
 		super(comparatorLambda);
 		// TODO Auto-generated constructor stub
 	}
 
-	public MinHeap(int MAXSTACK, BiFunction<T, T, Integer> comparatorLambda) {
+	public Heap(int MAXSTACK, BiFunction<T, T, Integer> comparatorLambda) {
 		super(MAXSTACK, comparatorLambda);
 		// TODO Auto-generated constructor stub
 	}
 
-	public MinHeap(int MAXSTACK) {
+	public Heap(int MAXSTACK) {
 		super(MAXSTACK);
 		// TODO Auto-generated constructor stub
 	}
@@ -119,7 +119,7 @@ public class MinHeap<T> extends BinarySearchTree_Array<T> implements HeapInterfa
 	public boolean isHeapFromIndex(int startWith) {
 		// TODO Auto-generated method stub
 		System.out.println("isHeapFromIndex @"+startWith);
-		if(startWith >= getArray().length)
+		if(! checkForArrayInBounds(startWith))
 			return true;
 		if(getArray()[startWith] == null)
 			return true;
@@ -142,7 +142,15 @@ public class MinHeap<T> extends BinarySearchTree_Array<T> implements HeapInterfa
 		
 		System.out.println("Root ->"+getInfoAtIndex(startWith));
 		System.out.println("Left ->"+getInfoAtIndex(leftNodeIndex));
-		System.out.println("Right ->"+getInfoAtIndex(rightNodeIndex));
+ 		System.out.println("Right ->"+getInfoAtIndex(rightNodeIndex));
+		if( checkForArrayInBounds(rightNodeIndex) && ! checkForArrayInBounds(leftNodeIndex))
+		{
+			 leftNodeIndex=rightNodeIndex;
+		}
+		else if ( ! checkForArrayInBounds(rightNodeIndex) && checkForArrayInBounds(leftNodeIndex))
+		{
+			 rightNodeIndex = leftNodeIndex;
+		}
 		if( getComparator().apply(getInfoAtIndex(leftNodeIndex), getInfoAtIndex(rightNodeIndex)) < 0 )
 		{
 			lowestNodeIndex = leftNodeIndex;
@@ -159,6 +167,8 @@ public class MinHeap<T> extends BinarySearchTree_Array<T> implements HeapInterfa
 
 		if(lowestNodeIndex != startWith)
 		{
+			if(! checkForArrayInBounds(lowestNodeIndex))
+				return true;
 			System.out.println(" perform swap root with "+lowestNodeIndex);
 			BinaryTree_Array_Node<T> temp = getArray()[startWith];
 			getArray()[startWith] = getArray()[lowestNodeIndex];
@@ -190,9 +200,15 @@ public class MinHeap<T> extends BinarySearchTree_Array<T> implements HeapInterfa
 	public static void main(String args[])
 	{
 		Integer[] inputs = {35,33,42,10,14,19,27,44,26,31};
-		MinHeap<Integer> minHeap = new MinHeap<Integer>(inputs.length);
+		BiFunction<Integer, Integer, Integer> biFunction_MinHeap = (a,b) -> (castAndCompareTo(a,b));
+		Heap<Integer> minHeap = new Heap<Integer>(inputs.length,biFunction_MinHeap);
+		
+		BiFunction<Integer, Integer, Integer> biFunction_MaxHeap = (a,b) -> (castAndCompareTo(b,a));
+		Heap<Integer> maxHeap = new Heap<Integer>(inputs.length,biFunction_MaxHeap);
+		//MinHeap<Integer> minHeap = new MinHeap<Integer>(inputs.length);
 		//,10,14,19,27,44,26,31};
 		minHeap.setArrayBeforeHeaping(inputs);
+		maxHeap.setArrayBeforeHeaping(inputs);
 		//for(int input:inputs)
  		//minHeap.insert(input);
 		//new BinaryTreeSort_Array<Integer>(10).sortGeneric(inputs);
@@ -200,11 +216,18 @@ public class MinHeap<T> extends BinarySearchTree_Array<T> implements HeapInterfa
 		//System.out.println(Arrays.toString(minHeap.getArray()));
 		//System.out.println(minHeap.inOrderTraversal());
 		String beforeMinHeap =Arrays.toString(minHeap.getArray());
-		System.out.println(minHeap.isHeapFromIndex(0));
+		String beforeMaxHeap =Arrays.toString(maxHeap.getArray());
+		minHeap.isHeapFromIndex(0);
+		maxHeap.isHeapFromIndex(0);
 		String afterMinHeap =Arrays.toString(minHeap.getArray());
+		String afterMaxHeap =Arrays.toString(maxHeap.getArray());
 		System.out.println("beforeMinHeap ->"+beforeMinHeap);
-		System.out.println("afterMinHeap  ->"+afterMinHeap);
-		System.out.println(minHeap.inOrderTraversal());
+		System.out.println("afterMinHeap   -> "+afterMinHeap);
+		
+		System.out.println("\nbeforeMaxHeap ->"+beforeMaxHeap);
+		System.out.println("afterMaxHeap   -> "+afterMaxHeap);
+		
+		
 		//System.out.println(Arrays.toString(minHeap.getArray()));
 	}
 

@@ -15,12 +15,12 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 	public BinaryTree_Array_Node<T>[] getArray() {
 		return array;
 	}
-	public boolean checkForArrayOutOfBounds(int requestedIndex)
+	public boolean checkForArrayInBounds(int requestedIndex)
 	{
-		return (requestedIndex >= 0 && requestedIndex<array.length); 
+		return (requestedIndex >= 0 && (requestedIndex<(array.length ))); 
 	}
 	public T getInfoAtIndex(int atIndex) {
-		if(! checkForArrayOutOfBounds(atIndex))
+		if(! checkForArrayInBounds(atIndex))
 			return null;
 		if(array[atIndex] != null && array[atIndex].isInUse())
 			return array[atIndex].getInfo();
@@ -188,7 +188,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 			}
 		}
 
-		return -9;
+		return 0;
 	}
 	
 	public String toString()
