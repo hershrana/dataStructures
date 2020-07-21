@@ -29,7 +29,7 @@ public class BinarySearchTree_Array<T> extends BinaryTree_Array<T> {
 	{
 		int currentIndex = rootIndex;
 		System.out.println("Inserting "+insertValue);
-		while(currentIndex <= numberOfInputs && array[currentIndex] !=null)
+		while(currentIndex <= calc_MAXSTACK && array[currentIndex] !=null)
 		{
 			
 			if( comparator.apply(insertValue, array[currentIndex].getInfo()) < 0)
@@ -44,6 +44,7 @@ public class BinarySearchTree_Array<T> extends BinaryTree_Array<T> {
 			}
 			
 		}
+		System.out.println("Inserted "+insertValue+" @index="+currentIndex);
 		array[currentIndex] = new BinaryTree_Array_Node<T>(insertValue);
 		return currentIndex;
 	}

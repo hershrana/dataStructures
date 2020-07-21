@@ -14,4 +14,6 @@ public interface BinaryTreeInterface<T> {
 	public StringBuffer inOrderTraversal();
 	public StringBuffer preOrderTraversal();
 	public StringBuffer postOrderTraversal();
+	
+	public BinaryTree_Array_Node<T> createTree(T rootNodeValue);
 }

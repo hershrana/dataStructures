@@ -15,15 +15,22 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 	public BinaryTree_Array_Node<T>[] getArray() {
 		return array;
 	}
-
+	public boolean checkForArrayOutOfBounds(int requestedIndex)
+	{
+		return (requestedIndex >= 0 && requestedIndex<array.length); 
+	}
 	public T getInfoAtIndex(int atIndex) {
-		return array[atIndex].getInfo();
+		if(! checkForArrayOutOfBounds(atIndex))
+			return null;
+		if(array[atIndex] != null && array[atIndex].isInUse())
+			return array[atIndex].getInfo();
+		return null;
 	}
 	
 	public void setArray(BinaryTree_Array_Node<T>[] array) {
 		this.array = array;
 	}
-
+	
 	public BiFunction<T, T, Integer> getComparator() {
 		return comparator;
 	}
@@ -40,9 +47,10 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 	public int leftOffset = 1;
 	private int calculateArraySize()
 	{
-		int n = (2*numberOfInputs)+2;
-		return (2*n)+2;
-	}
+		int n = Double.valueOf(Math.pow(2,numberOfInputs)).intValue()+1;
+		System.out.println("latest size of calc_MAXSTACK = "+n);
+		return n;
+	} 
 	
 	@SuppressWarnings("unchecked")
 	public BinaryTree_Array(int MAXSTACK,BiFunction<T, T, Integer> comparatorLambda)
@@ -92,12 +100,14 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 	public int getIndexAtValue(T searchValue)
 	{
 		int parentIndex = 0;
-		while(! array[parentIndex].equals(searchValue))
+
+		while(! array[parentIndex].getInfo().equals(searchValue))
 		{
 			parentIndex++;
 		}
 		return parentIndex;
 	}
+
 	public void setRightAtValue(T rightValue,T parentValue)
 	{
 		//search and find parent index
@@ -289,4 +299,10 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 		}
 		return sb;
 	}
+
+	@Override
+	public BinaryTree_Array_Node<T> createTree(T rootNodeValue) {
+		 array[rootIndex] = new BinaryTree_Array_Node<T>(rootNodeValue);
+		 return getRootNode();
+		}
 }
