@@ -10,23 +10,39 @@ import dataStructures.gog.ds.trees.BinaryTree_Array_Node;
 public class Heap<T> extends BinarySearchTree_Array<T> implements HeapInterface<T> {
 
 	int tailIndex =-1;
+	@SuppressWarnings("unchecked")
 	public Heap() {
 		super();
+		calc_MAXSTACK = 100;
+		numberOfInputs = 100;
+		setArray(new BinaryTree_Array_Node[calc_MAXSTACK]);
 		// TODO Auto-generated constructor stub
 	}
 
+	@SuppressWarnings("unchecked")
 	public Heap(BiFunction<T, T, Integer> comparatorLambda) {
-		super(comparatorLambda);
+		setComparator(comparatorLambda);
+		calc_MAXSTACK = 100;
+		numberOfInputs = 100;
+		setArray(new BinaryTree_Array_Node[calc_MAXSTACK]);
 		// TODO Auto-generated constructor stub
 	}
 
+	@SuppressWarnings("unchecked")
 	public Heap(int MAXSTACK, BiFunction<T, T, Integer> comparatorLambda) {
-		super(MAXSTACK, comparatorLambda);
+		setComparator(comparatorLambda);
+		calc_MAXSTACK = MAXSTACK;
+		numberOfInputs = MAXSTACK;
+		setArray(new BinaryTree_Array_Node[calc_MAXSTACK]);
 		// TODO Auto-generated constructor stub
 	}
 
+	@SuppressWarnings("unchecked")
 	public Heap(int MAXSTACK) {
-		super(MAXSTACK);
+		setComparator((a,b) -> castAndCompareTo(a, b));
+		calc_MAXSTACK = MAXSTACK;
+		numberOfInputs = MAXSTACK;
+		setArray(new BinaryTree_Array_Node[calc_MAXSTACK]);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -295,6 +311,9 @@ public class Heap<T> extends BinarySearchTree_Array<T> implements HeapInterface<
 
 	@Override
 	public T popRoot() {
+		if(tailIndex < rootIndex)
+			return null;
+			
 		T retVal = getArray()[rootIndex].getInfo();
 		//adjust heap
 			//swap tail to root
@@ -307,6 +326,9 @@ public class Heap<T> extends BinarySearchTree_Array<T> implements HeapInterface<
 
 	@Override
 	public T peak() {
+		if(tailIndex < rootIndex)
+			return null;
+		
 		return getArray()[rootIndex].getInfo();
 	}
 	

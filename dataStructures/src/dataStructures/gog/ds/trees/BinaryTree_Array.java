@@ -8,8 +8,8 @@ import dataStructures.common.interfaces.tree.BinaryTreeInterface;
 
 
 public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
-	int numberOfInputs = 10;
-	int calc_MAXSTACK;
+	protected int numberOfInputs = 10;
+	protected int calc_MAXSTACK;
 	BinaryTree_Array_Node<T>[] array ;
 	
 	public BinaryTree_Array_Node<T>[] getArray() {
