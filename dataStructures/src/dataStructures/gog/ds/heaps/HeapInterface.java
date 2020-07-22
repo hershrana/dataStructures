@@ -10,4 +10,5 @@ public interface HeapInterface<T> extends BinaryTreeInterface<T>{
 	public boolean addToHeap(T elementToAdd);
 	public void setArrayBeforeHeaping(T[] array);
 	public T popRoot();
+	public T peak();
 }

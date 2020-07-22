@@ -19,6 +19,16 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 	{
 		return (requestedIndex >= 0 && (requestedIndex<(array.length ))); 
 	}
+	
+	public boolean isValidElement(int index)
+	{
+		if(checkForArrayInBounds(index))
+		{
+			if(array[index] != null && array[index].isInUse())
+				return true;
+		}
+		return false;
+	}
 	public T getInfoAtIndex(int atIndex) {
 		if(! checkForArrayInBounds(atIndex))
 			return null;
