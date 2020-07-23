@@ -58,7 +58,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 	private int calculateArraySize()
 	{
 		int n = Double.valueOf(Math.pow(2,numberOfInputs)).intValue()+1;
-		Util.PrintUtil.println("latest size of calc_MAXSTACK = "+n);
+		p.o.println("latest size of calc_MAXSTACK = "+n);
 		return n;
 	} 
 	
@@ -136,7 +136,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 		int newRightIndex = 2 * parentIndex + rightOffset;
 		if(newRightIndex > numberOfInputs)
 		{
-			Util.PrintUtil.println("Cannot insert "+rightValue+" as MAXSTACK is reached "+numberOfInputs);
+			p.o.println("Cannot insert "+rightValue+" as MAXSTACK is reached "+numberOfInputs);
 			return;
 		}
 		if(array[newRightIndex] == null)
@@ -147,7 +147,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 		}
 		else
 		{
-			Util.PrintUtil.println("Cannot insert "+rightValue+" as node is already in use");
+			p.o.println("Cannot insert "+rightValue+" as node is already in use");
 		}
 	}
 	public void setLeft(T leftValue,int parentIndex)
@@ -156,7 +156,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 				int newLeftIndex = 2 * parentIndex + leftOffset;
 				if(newLeftIndex > numberOfInputs)
 				{
-					Util.PrintUtil.println("Cannot insert "+leftValue+" as MAXSTACK is reached "+numberOfInputs);
+					p.o.println("Cannot insert "+leftValue+" as MAXSTACK is reached "+numberOfInputs);
 					return;
 				}
 				if(array[newLeftIndex] == null)
@@ -167,7 +167,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 				}
 				else
 				{
-					Util.PrintUtil.println("Cannot insert "+leftValue+" as node is already in use");
+					p.o.println("Cannot insert "+leftValue+" as node is already in use");
 				}
 	}
 	

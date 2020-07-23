@@ -2,40 +2,39 @@ package dataStructures.gog.sorting;
 
 import java.util.Arrays;
 
-import Util.PrintUtil;
-
+import p.o;
+import p.u;
 
 public class ShellSort_Main {
- //driver code
-	public static void main(String [] args)
-	{
-		PrintUtil.whiteList();
-		int[] inputs = {35, 14,33, 19,42, 27,10, 44,1};
+	// driver code
+	public static void main(String[] args) {
+		o.whiteList();
+		Integer[] inputs = { 35, 14, 33, 19, 42, 27, 10, 44, 1 };
+		o.println(u.isSorted(inputs));
 		new ShellSort_Main().sort(inputs);
-		PrintUtil.blackList();
-		PrintUtil.println(Arrays.toString(inputs));
+		o.println(Arrays.toString(inputs));
+		o.println(u.isSorted(inputs));
 	}
-	
-	public void sort(int[] inputs)
-	{
+
+	public void sort(Integer[] inputs) {
+		o.println("Sort started               " + Arrays.toString(inputs));
 		int temp;
-		// get a large gap mostly length of array/2 next iteration of gap is gap /2
-		for(int gap = inputs.length/2 ; gap >= 1 ; gap /=2)
-		{
-			for(int inner = gap ; inner < inputs.length ; inner+=gap)
-			{
-				PrintUtil.println("gap->"+gap+" inner->"+inner);
-				 temp = inputs[inner];
-//				if(inputs[inner] > inputs[inner+gap])
-//				{
-//					//swap
-//					temp = inputs[inner];
-//					inputs[inner] = inputs[inner+gap] ;
-//					inputs[inner+gap] =  temp;
-//				}
+
+		for (int gap = inputs.length / 2; gap > 0; gap /= 2) {
+			o.println("New gap " + gap);
+			for (int forwardCounter = gap; forwardCounter < inputs.length; forwardCounter++) {
+				temp = inputs[forwardCounter];
+				int reverseCounter;
+				for (reverseCounter = forwardCounter; reverseCounter >= gap && inputs[reverseCounter-gap] > temp; reverseCounter -= gap)  // create hole
+				{
+						inputs[reverseCounter] = inputs[reverseCounter-gap];
+						o.println("reverseCounter loop forwardCounter "+forwardCounter+" Reverse COunter"+reverseCounter+" "+Arrays.toString(inputs));
+				}
+					
+					inputs[reverseCounter] = temp;
+				
 			}
 		}
-		
 	}
-	
+
 }

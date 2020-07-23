@@ -73,7 +73,7 @@ public class BinarySearchTree_Threaded_Linked<T> {
 			compareOutput = comparator.apply(insertValue, currentPointer.value);//(insertValue,currentPointer.value);
 			if(compareOutput == 0)
 			{
-				Util.PrintUtil.println("Duplicate Key -> "+insertValue);
+				p.o.println("Duplicate Key -> "+insertValue);
 				return currentPointer;
 			}
 			else if(compareOutput < 0)
@@ -109,7 +109,7 @@ public class BinarySearchTree_Threaded_Linked<T> {
 			newChildNode.right = parentNode;
 			// add child node to left of parent
 			parentNode.left = newChildNode;
-			Util.PrintUtil.println("Add Left  "+parentNode);
+			p.o.println("Add Left  "+parentNode);
 			
 		}
 		else
@@ -119,7 +119,7 @@ public class BinarySearchTree_Threaded_Linked<T> {
 			newChildNode.left = parentNode;
 			// add child node to right of parent
 			parentNode.right = newChildNode;
-			Util.PrintUtil.println("Add Right "+parentNode);
+			p.o.println("Add Right "+parentNode);
 		}
 
 		

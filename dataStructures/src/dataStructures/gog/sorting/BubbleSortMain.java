@@ -42,16 +42,16 @@ public class BubbleSortMain {
 	{
 		
 		int arr[] = {5,1,4,2,8};
-		Util.PrintUtil.println(Arrays.toString(arr));
+		p.o.println(Arrays.toString(arr));
 		new BubbleSortAlgo().bubbleSort(arr);
-		Util.PrintUtil.println(Arrays.toString(arr));
+		p.o.println(Arrays.toString(arr));
 		
 		
 		
 		int arr1[] = {25,57,48,37,12,92,86,33};
-		Util.PrintUtil.println(Arrays.toString(arr1));
+		p.o.println(Arrays.toString(arr1));
 		new BubbleSortAlgo().bubbleSort(arr1);
-		Util.PrintUtil.println(Arrays.toString(arr1));
+		p.o.println(Arrays.toString(arr1));
 	}
 }
 
@@ -65,12 +65,12 @@ class BubbleSortAlgo
 		for(int pass = 0 ; pass < (arrLength-1) && improvement_Switched ; pass ++) //with improvement
 		{
 			improvement_Switched = false;
-			Util.PrintUtil.println("\t"+(pass+1)+"pass Entry -> "+Arrays.toString(arr));
+			p.o.println("\t"+(pass+1)+"pass Entry -> "+Arrays.toString(arr));
 			for(int inner = 0 ; inner < (arrLength-1); inner ++)
 			{
 				boolean display_swapped = false;///just for display purpose
 				int display_swapIndex = 0 ; ///just for display purpose
-				Util.PrintUtil.print("\t\t"+Arrays.toString(arr));
+				p.o.print("\t\t"+Arrays.toString(arr));
 				if(arr[inner] > arr[inner+1])												// current element is greater than next elem in array
 				{
 					temp = arr[inner];
@@ -81,11 +81,11 @@ class BubbleSortAlgo
 					improvement_Switched = true;
 				}
 				if(display_swapped)
-				Util.PrintUtil.println(" --> "+Arrays.toString(arr)+ " swapped "+display_swapped+" as "+arr[display_swapIndex+1]+" > "+arr[display_swapIndex]);
+				p.o.println(" --> "+Arrays.toString(arr)+ " swapped "+display_swapped+" as "+arr[display_swapIndex+1]+" > "+arr[display_swapIndex]);
 				else
-					Util.PrintUtil.println(" --> "+Arrays.toString(arr));
+					p.o.println(" --> "+Arrays.toString(arr));
 			}
-			Util.PrintUtil.println("\t"+(pass+1)+"pass Exit  -> "+Arrays.toString(arr)+"\n");
+			p.o.println("\t"+(pass+1)+"pass Exit  -> "+Arrays.toString(arr)+"\n");
 		}
 	}
 }

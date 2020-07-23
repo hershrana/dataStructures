@@ -24,13 +24,13 @@ public class QuickSort_PartitionSort_Main {
         QuickSort ob = new QuickSort(); 
         ob.sort(arr); 
   
-        Util.PrintUtil.println("sorted array"); 
+        p.o.println("sorted array"); 
         printArray(arr); 
     } 
 	
 	 static void printArray(int arr[]) 
 	    { 
-	        Util.PrintUtil.println(Arrays.toString(arr));
+	        p.o.println(Arrays.toString(arr));
 	    } 
 }
 class QuickSort
@@ -42,16 +42,16 @@ class QuickSort
 	public void quickSort(int[] input,int lower,int upper)
 	{
 		
-		Util.PrintUtil.println("entering quickSort(int[] input,int lower,int upper) = quickSort("+Arrays.toString(input)+","+lower+","+upper+")");
+		p.o.println("entering quickSort(int[] input,int lower,int upper) = quickSort("+Arrays.toString(input)+","+lower+","+upper+")");
 		if(lower < upper)
 		{
-			Util.PrintUtil.println("calling partition(input, lower, upper) = partition("+input+", "+lower+", "+upper+")");
+			p.o.println("calling partition(input, lower, upper) = partition("+input+", "+lower+", "+upper+")");
 			int patitionIndex = partition(input, lower, upper);
-			Util.PrintUtil.println(" return value of partitionIndex "+patitionIndex);
+			p.o.println(" return value of partitionIndex "+patitionIndex);
 			quickSort(input, lower, patitionIndex-1);
 			quickSort(input, patitionIndex+1, upper);
 		}
-		Util.PrintUtil.println("Exit quickSort(int[] input,int lower,int upper) = quickSort("+Arrays.toString(input)+","+lower+","+upper+")");
+		p.o.println("Exit quickSort(int[] input,int lower,int upper) = quickSort("+Arrays.toString(input)+","+lower+","+upper+")");
 	}
 	
 	/* This function takes last element as pivot, places
@@ -62,35 +62,35 @@ class QuickSort
 	public int partition(int[] input,int lower,int upper)
 	{
 		//always working as pivot element to be last
-		Util.PrintUtil.println("	entry partition  ->  lower "+lower+" upper "+upper+" -> "+Arrays.toString(input));
+		p.o.println("	entry partition  ->  lower "+lower+" upper "+upper+" -> "+Arrays.toString(input));
 		int pivotIndex = upper;
 		int returnPartionIndex = lower-1;
 		
 		for(int j=lower;j<upper;j++)
 		{
-			Util.PrintUtil.print("		is input["+j+"] < pivotValue "+input[j] + " < "+input[pivotIndex]);
+			p.o.print("		is input["+j+"] < pivotValue "+input[j] + " < "+input[pivotIndex]);
 			if(input[j] < input[pivotIndex])
 			{
 				//swap 
-				Util.PrintUtil.println(" YES swap is required ");
+				p.o.println(" YES swap is required ");
 				returnPartionIndex++;
 				int temp = input[j];
 				input[j] =input[returnPartionIndex];
 				input[returnPartionIndex] = temp;
-				Util.PrintUtil.println("			swapped occurred -> lower "+lower+" upper "+upper+" j "+j+" swapper "+returnPartionIndex+Arrays.toString(input));
+				p.o.println("			swapped occurred -> lower "+lower+" upper "+upper+" j "+j+" swapper "+returnPartionIndex+Arrays.toString(input));
 			}
 			else
 			{
-				Util.PrintUtil.println(" NO so swap is  NOT required ");
+				p.o.println(" NO so swap is  NOT required ");
 			}
 		}
 		
 		++returnPartionIndex;
-		Util.PrintUtil.println("		swapping before end  "+input[returnPartionIndex]+" "+input[upper]);
+		p.o.println("		swapping before end  "+input[returnPartionIndex]+" "+input[upper]);
 		int temp = input[returnPartionIndex]; 
         input[returnPartionIndex] = input[upper]; 
         input[upper] = temp; 
-        Util.PrintUtil.println("	exit partition  ->  lower "+lower+" upper "+upper+" returnPartionIndex "+returnPartionIndex+Arrays.toString(input));
+        p.o.println("	exit partition  ->  lower "+lower+" upper "+upper+" returnPartionIndex "+returnPartionIndex+Arrays.toString(input));
 		return returnPartionIndex;
 		
 	}

@@ -134,7 +134,7 @@ public class Heap<T> extends BinarySearchTree_Array<T> implements HeapInterface<
 	
 	public boolean isHeapFromIndex(int startWith) {
 		// TODO Auto-generated method stub
-		Util.PrintUtil.println("isHeapFromIndex @"+startWith);
+		p.o.println("isHeapFromIndex @"+startWith);
 		if(! isValidElement(startWith))
 			return true;
 		
@@ -154,9 +154,9 @@ public class Heap<T> extends BinarySearchTree_Array<T> implements HeapInterface<
 			isHeapFromIndex(rightNodeIndex);
 		int lowestNodeIndex;
 		
-		Util.PrintUtil.println("Root ->"+getInfoAtIndex(startWith));
-		Util.PrintUtil.println("Left ->"+getInfoAtIndex(leftNodeIndex));
- 		Util.PrintUtil.println("Right ->"+getInfoAtIndex(rightNodeIndex));
+		p.o.println("Root ->"+getInfoAtIndex(startWith));
+		p.o.println("Left ->"+getInfoAtIndex(leftNodeIndex));
+ 		p.o.println("Right ->"+getInfoAtIndex(rightNodeIndex));
  		if( !isValidElement(rightNodeIndex) && ! isValidElement(leftNodeIndex))
  		{
  			return true;
@@ -187,7 +187,7 @@ public class Heap<T> extends BinarySearchTree_Array<T> implements HeapInterface<
 		{
 			if(! checkForArrayInBounds(lowestNodeIndex))
 				return true;
-			Util.PrintUtil.println(" perform swap root with "+lowestNodeIndex);
+			p.o.println(" perform swap root with "+lowestNodeIndex);
 			BinaryTree_Array_Node<T> temp = getArray()[startWith];
 			getArray()[startWith] = getArray()[lowestNodeIndex];
 			getArray()[lowestNodeIndex] = temp; 
@@ -195,7 +195,7 @@ public class Heap<T> extends BinarySearchTree_Array<T> implements HeapInterface<
 		}
 		else
 		{
-			Util.PrintUtil.println("no swap required "+lowestNodeIndex);
+			p.o.println("no swap required "+lowestNodeIndex);
 			//return true;
 		}
 		
@@ -217,7 +217,7 @@ public class Heap<T> extends BinarySearchTree_Array<T> implements HeapInterface<
 	//driver program
 	public static void main(String args[])
 	{
-		Util.PrintUtil.whiteList();
+		p.o.whiteList();
 		Integer[] inputs = {35,33,42,10,14,19,27,44,26,31};
 		BiFunction<Integer, Integer, Integer> biFunction_MinHeap = (a,b) -> (a.compareTo(b));
 		BiFunction<Integer, Integer, Integer> biFunction_MaxHeap = (a,b) -> (b.compareTo(a));
@@ -237,34 +237,34 @@ public class Heap<T> extends BinarySearchTree_Array<T> implements HeapInterface<
 //		//for(int input:inputs)
 // 		//minHeap.insert(input);
 //		//new BinaryTreeSort_Array<Integer>(10).sortGeneric(inputs);
-//		//Util.PrintUtil.println("BinaryTreeSort"+Arrays.deepToString(inputs));
-//		//Util.PrintUtil.println(Arrays.toString(minHeap.getArray()));
-//		//Util.PrintUtil.println(minHeap.inOrderTraversal());
+//		//p.o.println("BinaryTreeSort"+Arrays.deepToString(inputs));
+//		//p.o.println(Arrays.toString(minHeap.getArray()));
+//		//p.o.println(minHeap.inOrderTraversal());
 //		String beforeMinHeap =Arrays.toString(minHeap.getArray());
 //		String beforeMaxHeap =Arrays.toString(maxHeap.getArray());
 //		minHeap.isHeapFromIndex(0);
 //		maxHeap.isHeapFromIndex(0);
 //		String afterMinHeap =Arrays.toString(minHeap.getArray());
 //		String afterMaxHeap =Arrays.toString(maxHeap.getArray());
-//		Util.PrintUtil.println("beforeMinHeap ->"+beforeMinHeap);
-//		Util.PrintUtil.println("afterMinHeap   -> "+afterMinHeap);
+//		p.o.println("beforeMinHeap ->"+beforeMinHeap);
+//		p.o.println("afterMinHeap   -> "+afterMinHeap);
 //		
-//		Util.PrintUtil.println("\nbeforeMaxHeap ->"+beforeMaxHeap);
-//		Util.PrintUtil.println("afterMaxHeap   -> "+afterMaxHeap);
+//		p.o.println("\nbeforeMaxHeap ->"+beforeMaxHeap);
+//		p.o.println("afterMaxHeap   -> "+afterMaxHeap);
 
 		
 		Heap<Integer> minHeapAddDemo = new Heap<Integer>(inputs.length,biFunction_MinHeap);
 		for(Integer i : inputs)
 			minHeapAddDemo.addToHeap(i);
-		Util.PrintUtil.println("\nminHeapAddDemo"+Arrays.toString(minHeapAddDemo.getArray()));
+		p.o.println("\nminHeapAddDemo"+Arrays.toString(minHeapAddDemo.getArray()));
 		
 		
 		Heap<Integer> maxHeapAddDemo = new Heap<Integer>(inputs.length,biFunction_MaxHeap);
 		for(Integer i : inputs)
 			maxHeapAddDemo.addToHeap(i);
-		Util.PrintUtil.println("\nmaxHeapAddDemo"+Arrays.toString(maxHeapAddDemo.getArray()));
-		Util.PrintUtil.deWhiteList();
-		//Util.PrintUtil.println(Arrays.toString(minHeap.getArray()));
+		p.o.println("\nmaxHeapAddDemo"+Arrays.toString(maxHeapAddDemo.getArray()));
+		p.o.deWhiteList();
+		//p.o.println(Arrays.toString(minHeap.getArray()));
 		StringBuffer popRoot = new StringBuffer();
 		for (int i = 0 ; i <10 ; i++)
 			popRoot.append(minHeapAddDemo.popRoot()+" , ");
@@ -273,12 +273,12 @@ public class Heap<T> extends BinarySearchTree_Array<T> implements HeapInterface<
 		for (int i = 0 ; i <10 ; i++)
 			popRooMaxt.append(maxHeapAddDemo.popRoot()+" , ");
 
-		Util.PrintUtil.whiteList();
-		Util.PrintUtil.println("min pop -> "+popRoot);
-		Util.PrintUtil.println(minHeapAddDemo);
+		p.o.whiteList();
+		p.o.println("min pop -> "+popRoot);
+		p.o.println(minHeapAddDemo);
 		
-		Util.PrintUtil.println("max pop -> "+popRooMaxt);
-		Util.PrintUtil.println(maxHeapAddDemo);
+		p.o.println("max pop -> "+popRooMaxt);
+		p.o.println(maxHeapAddDemo);
 	}
 
 	@Override

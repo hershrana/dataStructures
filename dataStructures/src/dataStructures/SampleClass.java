@@ -4,7 +4,7 @@ public class SampleClass {
 	
 	public static void main(String args[])
 	{
-		Util.PrintUtil.println("this is main class");
+		p.o.println("this is main class");
 	}
 
 }
