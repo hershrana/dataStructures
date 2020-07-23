@@ -45,17 +45,17 @@ public class SelectionSort_Main {
 	{
 
 		int input[] = {5,4,3,2,1};
-		System.out.println("Given array -> "+Arrays.toString(input));
+		Util.PrintUtil.println("Given array -> "+Arrays.toString(input));
 		new SelectionSort().sortWithMinFirst(input);
-		System.out.println("Sorted array -> "+Arrays.toString(input));
+		Util.PrintUtil.println("Sorted array -> "+Arrays.toString(input));
 	
 		
 		
 		
 		int inputWithMaxFirst[] = {1,2,3,5,4};
-		System.out.println("Given array -> "+Arrays.toString(inputWithMaxFirst));
+		Util.PrintUtil.println("Given array -> "+Arrays.toString(inputWithMaxFirst));
 		new SelectionSort().sortWithMaxFirst(inputWithMaxFirst);
-		System.out.println("Sorted array -> "+Arrays.toString(inputWithMaxFirst));
+		Util.PrintUtil.println("Sorted array -> "+Arrays.toString(inputWithMaxFirst));
 	}
 }
 class SelectionSort

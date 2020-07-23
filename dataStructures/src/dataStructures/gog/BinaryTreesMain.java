@@ -19,7 +19,7 @@ public class BinaryTreesMain {
 		bInt.insert(13);
 		
 		BinaryTree<Integer> bIntLambda = new BinaryTree<Integer>((a,b) -> a.compareTo(b));
-		System.out.println("Lambda Outputs");
+		Util.PrintUtil.println("Lambda Outputs");
 		bIntLambda.insert(20);
 		bIntLambda.insert(10);
 		bIntLambda.insert(30);
@@ -32,7 +32,7 @@ public class BinaryTreesMain {
 		
 		
 		BinaryTree<Character> bCharT = new BinaryTree<Character>((a,b) -> a.compareTo(b));
-		System.out.println("Lambda Outputs");
+		Util.PrintUtil.println("Lambda Outputs");
 		bCharT.insert('H');
 		bCharT.insert('K');
 		bCharT.insert('P');
@@ -51,12 +51,12 @@ public class BinaryTreesMain {
 		bInt.insert(14);
 		bInt.insert(17);
 		bInt.insert(13);
-		System.out.println(bInt.inOrderTraversal());
-		System.out.println(bInt.preOrderTraversal());
-		System.out.println(bInt.postOrderTraversal());
+		Util.PrintUtil.println(bInt.inOrderTraversal());
+		Util.PrintUtil.println(bInt.preOrderTraversal());
+		Util.PrintUtil.println(bInt.postOrderTraversal());
 		
 		BinarySearchTree_Array<Integer> bIntLambda = new BinarySearchTree_Array<Integer>(8,(a,b) -> a.compareTo(b));
-		System.out.println("Lambda Outputs");
+		Util.PrintUtil.println("Lambda Outputs");
 		bIntLambda.insert(20);
 		bIntLambda.insert(10);
 		bIntLambda.insert(30);
@@ -65,14 +65,14 @@ public class BinaryTreesMain {
 		bIntLambda.insert(14);
 		bIntLambda.insert(17);
 		bIntLambda.insert(13);
-		System.out.println(bIntLambda.inOrderTraversal());
-		System.out.println(bIntLambda.preOrderTraversal());
-		System.out.println(bIntLambda.postOrderTraversal());
+		Util.PrintUtil.println(bIntLambda.inOrderTraversal());
+		Util.PrintUtil.println(bIntLambda.preOrderTraversal());
+		Util.PrintUtil.println(bIntLambda.postOrderTraversal());
 		
 		
 		
 		BinarySearchTree_Array<Character> bCharT = new BinarySearchTree_Array<Character>(8,(a,b) -> a.compareTo(b));
-		System.out.println("Lambda Outputs");
+		Util.PrintUtil.println("Lambda Outputs");
 		bCharT.insert('H');
 		bCharT.insert('K');
 		bCharT.insert('P');
@@ -83,9 +83,9 @@ public class BinaryTreesMain {
 		bCharT.insert('h');
 		
 		
-		System.out.println(bCharT.inOrderTraversal());
-		System.out.println(bCharT.preOrderTraversal());
-		System.out.println(bCharT.postOrderTraversal());
+		Util.PrintUtil.println(bCharT.inOrderTraversal());
+		Util.PrintUtil.println(bCharT.preOrderTraversal());
+		Util.PrintUtil.println(bCharT.postOrderTraversal());
 		
 	}
 }

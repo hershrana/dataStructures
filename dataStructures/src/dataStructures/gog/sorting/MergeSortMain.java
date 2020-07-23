@@ -28,8 +28,8 @@ public class MergeSortMain {
     	
         int arr[] =  {38,27,43,3,9,82,10};//{25,57,48,37,12,92,86,33};//{ 12, 11, 13, 5, 6, 7 }; 
   
-        System.out.println("Given Array"); 
-        System.out.println(Arrays.toString(arr));
+        Util.PrintUtil.println("Given Array"); 
+        Util.PrintUtil.println(Arrays.toString(arr));
   /*
         MergeSortCopied ob = new MergeSortCopied(); 
         ob.sort(arr, 0, arr.length-1);
@@ -38,8 +38,8 @@ public class MergeSortMain {
         MergeSort ob = new MergeSort(); 
         ob.sort(arr);
   
-        System.out.println("\nSorted array"); 
-        System.out.println(Arrays.toString(arr));
+        Util.PrintUtil.println("\nSorted array"); 
+        Util.PrintUtil.println(Arrays.toString(arr));
         
         
         
@@ -47,13 +47,13 @@ public class MergeSortMain {
         
         int arr1[] = { 25,57,48,37,12,92,86,33 }; 
         
-        System.out.println("Given Array"); 
-        System.out.println(Arrays.toString(arr1));
+        Util.PrintUtil.println("Given Array"); 
+        Util.PrintUtil.println(Arrays.toString(arr1));
   
         new MergeSort().sort(arr1);
   
-        System.out.println("\nSorted array"); 
-        System.out.println(Arrays.toString(arr1));
+        Util.PrintUtil.println("\nSorted array"); 
+        Util.PrintUtil.println(Arrays.toString(arr1));
         
         */
     } 
@@ -145,7 +145,7 @@ class MergeSort
 			////current_A2 ++;current_merge++;
 		}
 		
-		System.out.println(" left "+left+",  middle "+middle+" ,  right "+right+"  --> "+Arrays.toString(input));
+		Util.PrintUtil.println(" left "+left+",  middle "+middle+" ,  right "+right+"  --> "+Arrays.toString(input));
 	}
 	
 }
@@ -228,8 +228,8 @@ class MergeSort
 //    { 
 //        int n = arr.length; 
 //        for (int i = 0; i < n; ++i) 
-//            System.out.print(arr[i] + " "); 
-//        System.out.println(); 
+//            Util.PrintUtil.print(arr[i] + " "); 
+//        Util.PrintUtil.println(); 
 //    
 //    }
 //}

@@ -198,8 +198,8 @@ class BinaryNode<T> {
 			nodeToAddAt.addLeftChild(leftChildValue);
 			nodeToAddAt.leftChild.fatherNode = nodeToAddAt;
 			nodeToAddAt.leftChild.siblingNode = nodeToAddAt.rightChild;
-			System.out.println("Left Child Added at " + atNodeValue);
-			System.out.println(nodeToAddAt.leftChild.printInline(null));
+			Util.PrintUtil.println("Left Child Added at " + atNodeValue);
+			Util.PrintUtil.println(nodeToAddAt.leftChild.printInline(null));
 
 			// added for threaded nodes in btree
 			// new node left child = parent left child
@@ -212,7 +212,7 @@ class BinaryNode<T> {
 			return nodeToAddAt.leftChild;
 		}
 		// add to leftchild
-		System.out.println("atNodeValue not found for " + atNodeValue);
+		Util.PrintUtil.println("atNodeValue not found for " + atNodeValue);
 		return null;
 
 	}
@@ -225,8 +225,8 @@ class BinaryNode<T> {
 			nodeToAddAt.addRightChild(rightChildValue);
 			nodeToAddAt.rightChild.fatherNode = nodeToAddAt;
 			nodeToAddAt.rightChild.siblingNode = nodeToAddAt.leftChild;
-			System.out.println("Right Child Added at " + atNodeValue);
-			System.out.println(nodeToAddAt.rightChild.printInline(null));
+			Util.PrintUtil.println("Right Child Added at " + atNodeValue);
+			Util.PrintUtil.println(nodeToAddAt.rightChild.printInline(null));
 
 			nodeToAddAt.rightChild.leftChild = nodeToAddAt;
 			nodeToAddAt.rightChild.rightChild = nodeToAddAt.rightChild;
@@ -234,7 +234,7 @@ class BinaryNode<T> {
 
 			return nodeToAddAt.rightChild;
 		}
-		System.out.println("atNodeValue not found for" + atNodeValue);
+		Util.PrintUtil.println("atNodeValue not found for" + atNodeValue);
 		return null;
 
 		// add to right child
@@ -254,7 +254,7 @@ class BinaryTree<T> {
 
 	public String toString() {
 		// String outputString = "[value -> "+rootNode.value+"]";
-		System.out.println(rootNode);
+		Util.PrintUtil.println(rootNode);
 		return "";
 	}
 
@@ -334,7 +334,7 @@ class BinarySearchTree extends BinaryTree<Integer>
 	        // If key already exists, return  
 	        if (insertValue == ptr.value)  
 	        {  
-	            System.out.printf("Duplicate Key !\n");  
+	            Util.PrintUtil.println("Duplicate Key !\n");  
 	            return;  
 	        }  
 	        
@@ -414,14 +414,14 @@ public class BinaryTree_Main {
 		// charTree.addRightChild('F', 'y');
 		/*
 		 * //StringBuffer sb = new StringBuffer();
-		 * System.out.println(charTree.preOrderTraversal()+"\n");
-		 * System.out.println(charTree.inOrderTraversal()+"\n");
-		 * //System.out.println(sb);
-		 * System.out.println(charTree.postOrderTraversal()+"\n");
+		 * Util.PrintUtil.println(charTree.preOrderTraversal()+"\n");
+		 * Util.PrintUtil.println(charTree.inOrderTraversal()+"\n");
+		 * //Util.PrintUtil.println(sb);
+		 * Util.PrintUtil.println(charTree.postOrderTraversal()+"\n");
 		 */
-		System.out.println(charTree.inlinePrint());
+		Util.PrintUtil.println(charTree.inlinePrint());
 
-		System.out.println(charTree.preOrderTraversalPrintAll());
+		Util.PrintUtil.println(charTree.preOrderTraversalPrintAll());
 
 	}
 
@@ -443,10 +443,10 @@ public class BinaryTree_Main {
 		charTree.addChild('H', left, 'K');
 		charTree.addChild('H', right, 'L');
 
-		System.out.println(charTree.preOrderTraversal() + "\n");
-		System.out.println(charTree.inOrderTraversal() + "\n");
-		// System.out.println(sb);
-		System.out.println(charTree.postOrderTraversal() + "\n");
+		Util.PrintUtil.println(charTree.preOrderTraversal() + "\n");
+		Util.PrintUtil.println(charTree.inOrderTraversal() + "\n");
+		// Util.PrintUtil.println(sb);
+		Util.PrintUtil.println(charTree.postOrderTraversal() + "\n");
 
 	}
 
@@ -455,12 +455,12 @@ public class BinaryTree_Main {
 		binaryTreeInteger.startWithRoot(10);
 		binaryTreeInteger.addLeftChild(5);
 		binaryTreeInteger.addRightChild(15);
-		System.out.println(binaryTreeInteger.preOrderTraversal());
-		// System.out.println(binaryTreeInteger.getNodeFromValue(-1));
+		Util.PrintUtil.println(binaryTreeInteger.preOrderTraversal());
+		// Util.PrintUtil.println(binaryTreeInteger.getNodeFromValue(-1));
 		binaryTreeInteger.addLeftChild(15, 14);
-		System.out.println(binaryTreeInteger.preOrderTraversal());
+		Util.PrintUtil.println(binaryTreeInteger.preOrderTraversal());
 
 		binaryTreeInteger.addRightChild(15, 17);
-		System.out.println(binaryTreeInteger.preOrderTraversal());
+		Util.PrintUtil.println(binaryTreeInteger.preOrderTraversal());
 	}
 }

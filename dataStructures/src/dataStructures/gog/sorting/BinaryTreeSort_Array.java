@@ -34,11 +34,11 @@ public class BinaryTreeSort_Array<T> extends BinarySearchTree_Array<T>{
 	public static void main(String args[])
 	{
 		Integer[] ips = {4,1,33,9,45,2,12};
-		System.out.println("Given Array : "+Arrays.toString(ips));
+		Util.PrintUtil.println("Given Array : "+Arrays.toString(ips));
 		BinaryTreeSort_Array<Integer> bst = new BinaryTreeSort_Array<Integer>();
 		bst.sortGeneric(ips);
-		System.out.println(bst.inOrderTraversal());
-		System.out.println("Sorted Array : "+Arrays.toString(ips));
+		Util.PrintUtil.println(bst.inOrderTraversal());
+		Util.PrintUtil.println("Sorted Array : "+Arrays.toString(ips));
 		
 	}
 	

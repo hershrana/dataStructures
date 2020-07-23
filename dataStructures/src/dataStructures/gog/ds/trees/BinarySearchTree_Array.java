@@ -28,23 +28,23 @@ public class BinarySearchTree_Array<T> extends BinaryTree_Array<T> {
 	public int insert(T insertValue)
 	{
 		int currentIndex = rootIndex;
-		System.out.println("Inserting "+insertValue);
+		Util.PrintUtil.println("Inserting "+insertValue);
 		while(currentIndex <= calc_MAXSTACK && array[currentIndex] !=null)
 		{
 			
 			if( comparator.apply(insertValue, array[currentIndex].getInfo()) < 0)
 			{
 				currentIndex = getNextLeftIndex(currentIndex);
-				System.out.println("traversing left to index "+currentIndex);
+				Util.PrintUtil.println("traversing left to index "+currentIndex);
 			}
 			else
 			{
 				currentIndex = getNextRightIndex(currentIndex);
-				System.out.println("traversing right to index "+currentIndex);
+				Util.PrintUtil.println("traversing right to index "+currentIndex);
 			}
 			
 		}
-		System.out.println("Inserted "+insertValue+" @index="+currentIndex);
+		Util.PrintUtil.println("Inserted "+insertValue+" @index="+currentIndex);
 		array[currentIndex] = new BinaryTree_Array_Node<T>(insertValue);
 		return currentIndex;
 	}

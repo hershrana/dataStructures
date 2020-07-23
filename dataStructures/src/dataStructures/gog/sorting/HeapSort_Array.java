@@ -41,9 +41,9 @@ public class HeapSort_Array<T> {
 		Integer[] inputs = {25,57,48,37,12,92,86,33};
 		HeapSort_Array<Integer> sorter = new HeapSort_Array<Integer>();
 		sorter.sort(inputs);
-		System.out.println(Arrays.deepToString(inputs));
+		Util.PrintUtil.println(Arrays.deepToString(inputs));
 		
 		sorter.reverseSort(inputs);
-		System.out.println(Arrays.deepToString(inputs));
+		Util.PrintUtil.println(Arrays.deepToString(inputs));
 	}
 }
