@@ -55,7 +55,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 	public int rootIndex = 0;
 	public int rightOffset = 2;
 	public int leftOffset = 1;
-	private int calculateArraySize()
+	protected int calculateArraySize()
 	{
 		int n = Double.valueOf(Math.pow(2,numberOfInputs)).intValue()+1;
 		p.o.println("latest size of calc_MAXSTACK = "+n);
@@ -242,7 +242,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 	{
 		if(sb == null)
 			sb = new StringBuffer();
-		if(startWith >= array.length-1)
+		if(startWith > array.length-1)
 		{
 			return sb;
 		}

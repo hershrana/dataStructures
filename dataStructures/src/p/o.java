@@ -26,6 +26,25 @@ public class  o {
 //		//whitelisted.add(new ShellSort_Main().getClass().getName());
 //		init = true;
 //	}
+	
+	public  static void whiteList(String pbj)
+	 {
+		 whitelisted.add(pbj); 
+	 }
+	
+	 public static void deWhiteList(String pbj)
+	 {
+		 whitelisted.remove(pbj); 
+	 }
+	public  static void whiteList(Class pbj)
+	 {
+		 whitelisted.add(pbj.getName()); 
+	 }
+	
+	 public static void deWhiteList(Class pbj)
+	 {
+		 whitelisted.remove(pbj.getName()); 
+	 }
 	public  static void whiteList()
 	 {
 		 whitelisted.add(Thread.currentThread().getStackTrace()[2].getClassName()); 
