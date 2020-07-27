@@ -20,6 +20,16 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 		return (requestedIndex >= 0 && (requestedIndex<(array.length ))); 
 	}
 	
+	public boolean removeElement(int index)
+	{
+		if(checkForArrayInBounds(index))
+		{
+			array[index] = null;
+				return true;
+		}
+		return false;
+	}
+	
 	public boolean isValidElement(int index)
 	{
 		if(checkForArrayInBounds(index))
@@ -57,7 +67,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 	public int leftOffset = 1;
 	protected int calculateArraySize()
 	{
-		int n = Double.valueOf(Math.pow(2,numberOfInputs)).intValue()+1;
+		int n = Double.valueOf(Math.pow(2,(numberOfInputs+1))).intValue()+1;
 		p.o.println("latest size of calc_MAXSTACK = "+n);
 		return n;
 	} 
@@ -130,7 +140,23 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 		setLeft(leftValue, getIndexAtValue(parentValue));
 	}
 	
+	public void overrideValueAt(T value,int index)
+	{
+		if(checkForArrayInBounds(index))
+		{
+			if(array[index] == null)
+				array[index] = new BinaryTree_Array_Node<T>(value);
+			else 
+			{
+				array[index].setInfo(value);
+			}
+		}
+	}
 	public void setRight(T rightValue,int parentIndex)
+	{
+		setRight(rightValue, parentIndex,false);
+	}
+	public void setRight(T rightValue,int parentIndex, boolean override)
 	{
 		// (2 * index) +1
 		int newRightIndex = 2 * parentIndex + rightOffset;
@@ -141,7 +167,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 		}
 		if(array[newRightIndex] == null)
 			array[newRightIndex] = new BinaryTree_Array_Node<T>(rightValue);
-		else if(! array[newRightIndex].isInUse())
+		else if(! array[newRightIndex].isInUse() || override)
 		{
 			array[newRightIndex].setInfo(rightValue);
 		}
@@ -152,6 +178,10 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 	}
 	public void setLeft(T leftValue,int parentIndex)
 	{
+		setLeft(leftValue, parentIndex,false);
+	}
+	public void setLeft(T leftValue,int parentIndex,boolean overrride)
+	{
 		// (2 * index) +1
 				int newLeftIndex = 2 * parentIndex + leftOffset;
 				if(newLeftIndex > numberOfInputs)
@@ -161,7 +191,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 				}
 				if(array[newLeftIndex] == null)
 					array[newLeftIndex] = new BinaryTree_Array_Node<T>(leftValue);
-				else if(! array[newLeftIndex].isInUse())
+				else if(! array[newLeftIndex].isInUse() || overrride)
 				{
 					array[newLeftIndex].setInfo(leftValue);
 				}
@@ -201,10 +231,10 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 		return 0;
 	}
 	
-	public String toString()
-	{
-		return Arrays.toString(array);
-	}
+//	public String toString()
+//	{
+//		return Arrays.toString(array);
+//	}
 	
 	public int getNextRightIndex(int currentIndex)
 	{
@@ -319,4 +349,18 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 		 array[rootIndex] = new BinaryTree_Array_Node<T>(rootNodeValue);
 		 return getRootNode();
 		}
+	
+	
+	public String toString()
+	{
+		StringBuffer sb = new StringBuffer();
+		for(BinaryTree_Array_Node<T> i : array)
+		{
+			if(i!=null)
+			sb.append(i.getInfo()+" , ");
+			else
+				sb.append("_ , ");
+		}
+		return sb.toString();
+	}
 }

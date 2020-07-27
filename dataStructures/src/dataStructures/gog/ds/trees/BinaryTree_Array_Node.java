@@ -11,6 +11,7 @@ public class BinaryTree_Array_Node<T> implements BinaryNode<T>
 	}
 	public void setInfo(T info) {
 		this.info = info;
+		if(info != null)
 		this.inUse = true;
 	}
 	public boolean isInUse() {
@@ -19,6 +20,7 @@ public class BinaryTree_Array_Node<T> implements BinaryNode<T>
 	public BinaryTree_Array_Node(T info) {
 		super();
 		this.info = info;
+		if(info != null)
 		this.inUse = true;
 	}
 	
