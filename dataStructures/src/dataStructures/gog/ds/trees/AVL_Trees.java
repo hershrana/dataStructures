@@ -163,8 +163,23 @@ public class AVL_Trees<T> extends BinarySearchTree_Array<T> {
 		
 		
 		
+//		AVL_Trees<Integer> rightUnablancedTree = new AVL_Trees<Integer>(4);
+//		Integer rightUnbalancedInput[] = {1,2,3,4};//{4,3,2,1};//{1,2,3,4};
+//		addToTree(rightUnbalancedInput, rightUnablancedTree);
+//		
+//		p.o.println(Arrays.deepToString(rightUnablancedTree.getArray()));
+//		p.o.println(rightUnablancedTree.getBalanceFactor(0));
+//		p.o.whiteList();
+//		p.o.println("unbalanced tree start "+rightUnablancedTree);
+//		p.o.deWhiteList();
+//		p.o.println(rightUnablancedTree.balanceNode(0));
+//		p.o.whiteList();
+//		p.o.println("unbalanced tree end "+rightUnablancedTree);
+//		p.o.deWhiteList();
+//		p.o.println(rightUnablancedTree.inOrderTraversal());
+		
 		AVL_Trees<Integer> rightUnablancedTree = new AVL_Trees<Integer>(4);
-		Integer rightUnbalancedInput[] = {1,2,3,4};//{4,3,2,1};//{1,2,3,4};
+		Integer rightUnbalancedInput[] = {5,3,1};//{4,3,2,1};//{1,2,3,4};
 		addToTree(rightUnbalancedInput, rightUnablancedTree);
 		
 		p.o.println(Arrays.deepToString(rightUnablancedTree.getArray()));
