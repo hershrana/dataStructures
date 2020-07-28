@@ -1,1 +1,62 @@
 this file is like quick implementation todo
+----------------------------
+----------------------------
+DataStructures
+----------------------------
+
+1)  array simple traverse,insert,delete,search,update
+2) linked list - singly linked
+3) linked list - doubly linked
+4) linked list - circular doubly linked
+
+-----
+5) Stack - linked list   implementation --- push,pop,peek,isFull,isEmpty
+6) Stack - array implementation --- push,pop,peek,isFull,isEmpty
+
+8)Queue - linked list implementation - enqueue,dequeue,dequeue,isfull,isEmpty
+9)Queue - array implementation - enqueue,dequeue,dequeue,isfull,isEmpty
+
+Practical use cases
+10) Expression Parsing using stack
+
+
+11) Trees  - dynamic implementation - insert,search , traversal
+12) Trees  - array implementation - insert,search , traversal
+
+13) Binary Tree
+14) Binary Search Tree
+
+15) AVL auto balancing trees
+
+
+16) Min Heap and Max Heap - dynamic -
+17) Min Heap and Max Heap - array -
+----------------------------
+----------------------------
+Alog
+----------------------------
+
+----------------------------
+Sorting
+----------------------------
+18) Binary Tree Sort
+19) Bubble Sort
+20) HeapSort
+21) Merge Sort
+22) Quick Sort
+23) Radix Sort
+24) Selection Sort
+25) Shell Sort
+
+
+
+
+----------------------------
+Searching 
+----------------------------
+
+1) Linear search
+2) Binary Search
+3) Interpolation Search
+4) Hashing
+
