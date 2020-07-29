@@ -10,7 +10,7 @@ public class HeapSort_Array<T> {
 	public void sort(T[] inputs)
 	{
 		
-		HeapInterface<T> heapInt = new Heap<T>(inputs.length,(a,b) -> (BinaryTree_Array.castAndCompareTo(a, b)));
+		HeapInterface<T> heapInt = new Heap<T>(inputs.length,(a,b) -> (p.u.castAndCompareTo(a, b)));
 		for(T i : inputs)
 			heapInt.addToHeap(i);
 		int temp = 0;
@@ -25,7 +25,7 @@ public class HeapSort_Array<T> {
 	public void reverseSort(T[] inputs)
 	{
 		
-		HeapInterface<T> heapInt = new Heap<T>(inputs.length,(a,b) -> (-1 * BinaryTree_Array.castAndCompareTo(a, b)));
+		HeapInterface<T> heapInt = new Heap<T>(inputs.length,(a,b) -> (-1 * p.u.castAndCompareTo(a, b)));
 		for(T i : inputs)
 			heapInt.addToHeap(i);
 		int temp = 0;

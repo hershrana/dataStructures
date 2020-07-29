@@ -39,7 +39,7 @@ public class Heap<T> extends BinarySearchTree_Array<T> implements HeapInterface<
 
 	@SuppressWarnings("unchecked")
 	public Heap(int MAXSTACK) {
-		setComparator((a,b) -> castAndCompareTo(a, b));
+		setComparator((a,b) -> p.u.castAndCompareTo(a, b));
 		calc_MAXSTACK = MAXSTACK;
 		numberOfInputs = MAXSTACK;
 		setArray(new BinaryTree_Array_Node[calc_MAXSTACK]);

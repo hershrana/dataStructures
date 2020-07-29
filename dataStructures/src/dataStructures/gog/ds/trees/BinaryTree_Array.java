@@ -92,7 +92,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 	@SuppressWarnings("unchecked")
 	public BinaryTree_Array(int MAXSTACK)
 	{
-		comparator = (obj1,obj2) -> castAndCompareTo(obj1,obj2);
+		comparator = (obj1,obj2) -> p.u.castAndCompareTo(obj1,obj2);
 		this.numberOfInputs = MAXSTACK;
 		calc_MAXSTACK = calculateArraySize();
 		this.array = new BinaryTree_Array_Node[calc_MAXSTACK];
@@ -101,7 +101,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 	@SuppressWarnings("unchecked")
 	public BinaryTree_Array()
 	{
-		comparator = (obj1,obj2) -> castAndCompareTo(obj1,obj2);
+		comparator = (obj1,obj2) -> p.u.castAndCompareTo(obj1,obj2);
 		calc_MAXSTACK = calculateArraySize();
 		this.array = new BinaryTree_Array_Node[calc_MAXSTACK];
 	}
@@ -204,7 +204,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 	
 	
 	
-	
+	/*
 	@SuppressWarnings("rawtypes")
 	public static Integer castAndCompareTo(Object obj1, Object obj2) {
 		if (obj1 != null && obj2 != null) {
@@ -230,7 +230,7 @@ public class BinaryTree_Array<T> implements BinaryTreeInterface<T>{
 
 		return 0;
 	}
-	
+	*/
 //	public String toString()
 //	{
 //		return Arrays.toString(array);
