@@ -6,7 +6,7 @@ import dataStructures.gog.ds.trees.BinaryTree_Array_Node;
 
 public class u {
 	
-public static BiFunction< ? extends Object, ? extends Object, Integer> castAndCompareToLambda = (a , b) -> castAndCompareTo(a, b);
+public static BiFunction< Object, Object, Integer> castAndCompareToLambda = (a , b) -> castAndCompareTo(a, b);
  public static String isSorted(Integer[] check)
  {
 	StringBuffer sb = new StringBuffer();

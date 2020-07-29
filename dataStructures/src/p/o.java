@@ -151,7 +151,10 @@ public class  o {
 	}
 	
 	
-	
+	public  static void printMandatory(Object s)
+	{
+		System.out.println(ConsoleColors.BLUE_BOLD_BRIGHT + s);
+	}
 	public  static void print(Object s)
 	{
 		if(currentMode == forceAllStop)

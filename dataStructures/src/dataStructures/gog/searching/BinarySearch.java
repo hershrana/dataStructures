@@ -1,34 +1,64 @@
 package dataStructures.gog.searching;
 
+import java.util.Arrays;
 import java.util.function.BiFunction;
 
+import dataStructures.gog.sorting.BinaryTreeSort_Array;
+import dataStructures.gog.sorting.BubbleSortMain;
+
 public class BinarySearch<T> implements Search<T> {
-	BiFunction<? extends Object, ? extends Object, Integer> compareLambda;
-	public BiFunction<? extends Object, ? extends Object, Integer>  getCompareLambda() {
+	BiFunction<T,T, Integer> compareLambda;
+	public BiFunction<T,  T, Integer>  getCompareLambda() {
 		return compareLambda;
 	}
 
-	public void setCompareLambda(BiFunction<? extends Object, ? extends Object, Integer>  compareLambda) {
+	public void setCompareLambda(BiFunction<T,T, Integer>   compareLambda) {
 		this.compareLambda = compareLambda;
 	}
 	
-	public BinarySearch(BiFunction<? extends Object, ? extends Object, Integer>  compareLambda) {
+	public BinarySearch(BiFunction<T,T, Integer>   compareLambda) {
 		super();
 		this.compareLambda = compareLambda;
 	}
 	public BinarySearch() {
 		super();
-		this.compareLambda = p.u.castAndCompareToLambda;
+		this.compareLambda = (BiFunction<T, T, Integer>) p.u.castAndCompareToLambda;
 	}
 	@Override
 	public int search(T searchFor, T[] input) {
-		// TODO Auto-generated method stub
+
+			
 		return 0;
 	}
 
+	public T[] getSortedArray(T[] arrayToSort)
+	{
+		p.o.printMandatory("Binary Search expects the array to be sorted for our example we will sort array and this will lead to change in indices ");
+		T[] sortedArray;
+		boolean sorted = true;
+		for(int i = 1 ; i < arrayToSort.length && sorted; i ++)
+			if(compareLambda.apply(arrayToSort[i-1], arrayToSort[i]) < 0)
+			{
+				sorted = false;
+			}
+		if(sorted)
+		{
+			sortedArray = arrayToSort;
+		}
+		else
+		{
+			sortedArray = Arrays.copyOf(arrayToSort, arrayToSort.length);
+			new  BinaryTreeSort_Array<T>(compareLambda).sortGeneric(sortedArray);;
+		}
+		return sortedArray;
+	}
 	@Override
 	public Object searchAndReturn(T searchFor, T[] input) {
 		// TODO Auto-generated method stub
+		input = getSortedArray(input);
+		for(T ele : input)
+			if( compareLambda.apply(ele, searchFor) == 0)
+				return ele;
 		return null;
 	}
 
