@@ -62,71 +62,15 @@ public class  o {
 		 {
 			 blacklisted.remove(Thread.currentThread().getStackTrace()[2].getClassName()); 
 		 }
-//	public  static void println(String s)
-//	{
-//		if(currentMode == forceAllStop)
-//			return;
-//		if(currentMode == forceAllPrint)
-//			System.out.println(s);
-//		if(currentMode == controlledPrint)
-//		{
-//		String callingClass = Thread.currentThread().getStackTrace()[2].getClassName() ;
-//		if(  whitelisted.contains( callingClass) && !blacklisted.contains(callingClass))
-//		{
-//			System.out.println(s);
-//			return;
-//		}
-//		if ( ! warned.contains(callingClass))
-//		{
-//			warned.add(callingClass);
-//			if(blacklisted.contains(callingClass))
-//			{
-//				System.out.println("##ERROR## Blacklisted "+callingClass);
-//			}
-//			else
-//			{
-//			System.out.println("##WARN## WhiteList "+callingClass);
-//			}
-//		}
-//		}
-//	}
-//	public  static void println(StringBuffer s)
-//	{
-//		if(currentMode == forceAllStop)
-//			return;
-//		if(currentMode == forceAllPrint)
-//			System.out.println(s);
-//		if(currentMode == controlledPrint)
-//		{
-//		String callingClass = Thread.currentThread().getStackTrace()[2].getClassName() ;
-//		if(  whitelisted.contains( callingClass) && !blacklisted.contains(callingClass))
-//		{
-//			System.out.println(s);
-//			return;
-//		}
-//		if ( ! warned.contains(callingClass))
-//		{
-//			warned.add(callingClass);
-//			if(blacklisted.contains(callingClass))
-//			{
-//				System.out.println("##ERROR## Blacklisted "+callingClass);
-//			}
-//			else
-//			{
-//			System.out.println("##WARN## WhiteList "+callingClass);
-//			}
-//		}
-//		}
-//		
-//	}
-	
 	
 	public  static void println(Object s)
 	{
 		if(currentMode == forceAllStop)
 			return;
 		if(currentMode == forceAllPrint)
-			System.out.println(s);
+		{
+			System.out.println(s); return;
+		}
 		if(currentMode == controlledPrint)
 		{
 		String callingClass = Thread.currentThread().getStackTrace()[2].getClassName() ;
