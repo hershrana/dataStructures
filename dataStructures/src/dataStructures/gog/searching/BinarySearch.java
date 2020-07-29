@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.function.BiFunction;
 
 import dataStructures.gog.sorting.BinaryTreeSort_Array;
-import dataStructures.gog.sorting.BubbleSortMain;
 
 public class BinarySearch<T> implements Search<T> {
 	BiFunction<T,T, Integer> compareLambda;
@@ -48,7 +47,8 @@ public class BinarySearch<T> implements Search<T> {
 		else
 		{
 			sortedArray = Arrays.copyOf(arrayToSort, arrayToSort.length);
-			new  BinaryTreeSort_Array<T>(compareLambda).sortGeneric(sortedArray);;
+			new  BinaryTreeSort_Array<T>(compareLambda).sortGeneric(sortedArray);
+			p.o.println("Array is sorted "+Arrays.toString(sortedArray));
 		}
 		return sortedArray;
 	}
@@ -56,9 +56,28 @@ public class BinarySearch<T> implements Search<T> {
 	public Object searchAndReturn(T searchFor, T[] input) {
 		// TODO Auto-generated method stub
 		input = getSortedArray(input);
-		for(T ele : input)
-			if( compareLambda.apply(ele, searchFor) == 0)
-				return ele;
+		int low = 0 , high = input.length ,mid = (low+high)/2, maxIndex = input.length-1;
+		while(low <= high && (low <= maxIndex))
+		{
+			int compareResult = compareLambda.apply(searchFor, input[mid]);
+			if( compareResult == 0)
+			{
+				p.o.println(searchFor +" = "+ input[mid] + " matched exiting");
+				return input[mid];
+			}
+			else if (compareResult < 0 )
+			{
+				p.o.println(searchFor +" < "+ input[mid] + " hence lowering high");
+				high = mid - 1;
+				mid = (low+high)/2;
+			}
+			else
+			{
+				p.o.println(searchFor +" > "+ input[mid] + " hence incerasing low");
+				low = mid + 1;
+				mid = (low+high)/2;
+			}
+		}
 		return null;
 	}
 
