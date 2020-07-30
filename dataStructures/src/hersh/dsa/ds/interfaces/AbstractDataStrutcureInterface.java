@@ -1,4 +1,4 @@
-package dataStructures.data.interfaces;
+package hersh.dsa.ds.interfaces;
 
 public interface AbstractDataStrutcureInterface<T> {
 	public AbstractNode<T> insert(T info);

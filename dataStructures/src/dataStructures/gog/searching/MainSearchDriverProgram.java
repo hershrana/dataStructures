@@ -1,7 +1,5 @@
 package dataStructures.gog.searching;
 
-import java.util.function.BiFunction;
-
 public class MainSearchDriverProgram {
 public static void main(String argrs[])
 {
