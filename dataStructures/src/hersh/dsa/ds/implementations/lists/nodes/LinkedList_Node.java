@@ -72,4 +72,10 @@ public abstract class LinkedList_Node<T> implements AbstractNode<T> {
 			return false;
 		return true;
 	} */
+	
+	@Override
+	public String toString()
+	{
+		return info.toString();
+	}
 }

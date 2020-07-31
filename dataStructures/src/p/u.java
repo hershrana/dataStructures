@@ -1,5 +1,6 @@
 package p;
 
+import java.util.Calendar;
 import java.util.function.BiFunction;
 
 import dataStructures.gog.ds.trees.BinaryTree_Array_Node;
@@ -44,5 +45,34 @@ public static BiFunction< Object, Object, Integer> castAndCompareToLambda = (a ,
 		}
 
 		return 0;
+	}
+	
+	public static int timeBaseRandomNumber (int numOfDigits)
+	{
+		long timeInMs = Calendar.getInstance().getTimeInMillis();
+		StringBuffer sb = new StringBuffer("1");
+		for(int i = 1 ; i < numOfDigits ; i++)
+			sb.append("0");
+		int modulo = Integer.valueOf(sb.toString());
+		return (int)timeInMs%modulo;
+	}
+	
+	public static int getRandomIntegerBetweenRange(int min, int max){
+	    Double x = (Math.random()*((max-min)+1))+min;
+	    return x.intValue();
+	}
+	
+	public static int getRandomIntegerMaxRange(int max){
+		int min = 0;
+	    Double x = (Math.random()*((max-min)+1))+min;
+	    return x.intValue();
+	}
+	
+	
+	public static Integer[] getRandomIntegerArray(int size, int max){
+	 Integer[] array = new Integer[size];
+	 for(int i=0 ; i < size ;i ++)
+		 array[i] = p.u.getRandomIntegerMaxRange(max);
+	 return array;
 	}
 }

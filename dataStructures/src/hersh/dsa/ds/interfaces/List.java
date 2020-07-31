@@ -4,7 +4,8 @@ import java.util.function.BiFunction;
 
 public interface List<T> extends  AbstractDataStrutcureInterface<T> {
 	public AbstractNode<T> getRootNode();
-	public BiFunction<T, T, Boolean> getEqualsLambda() ;
-	public void setEqualsLambda(BiFunction<T, T, Boolean> equalsLambda);
+	public BiFunction<T, T, Boolean> getInfoEqualsLambda() ;
+	public void setInfoEqualsLambda(BiFunction<T, T, Boolean> infoEqualsLambda);
 	public T[] getArrayReprensentation();
+	AbstractNode<T> insertAfterValue(T addAfterInfo, T infoToAdd);
 }

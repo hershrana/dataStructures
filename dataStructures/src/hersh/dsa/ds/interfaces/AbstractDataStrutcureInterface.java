@@ -7,4 +7,5 @@ public interface AbstractDataStrutcureInterface<T> {
 	public AbstractNode<T> search(T info);
 	public String traverse (AbstractNode<T> startWithNode);
 	AbstractNode<T> update(T currentInfo, T newInfoToUpdate);
+	String traverse();
 }
