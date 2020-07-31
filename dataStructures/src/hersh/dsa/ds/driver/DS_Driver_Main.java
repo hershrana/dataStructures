@@ -28,7 +28,7 @@ public class DS_Driver_Main {
 		SinglyLinkedList<Integer> sll = new SinglyLinkedList<Integer>();
 		for(int counter = 0 ;counter <testInputs.length;counter++)
 		{
-			sll.insert(testInputs[counter]);
+			sll.insertAtTail(testInputs[counter]);
 		}
 		p.o.println(" single list created and traversing here "+sll.traverse());
 		
@@ -61,7 +61,7 @@ public class DS_Driver_Main {
 		
 		
 		offerVal = p.u.getRandomIntegerMaxRange(maxVal);
-		sll.insert(offerVal);
+		sll.insertAtTail(offerVal);
 		
 		p.o.println(" sll.insert("+offerVal+")"+sll);
 		
@@ -74,7 +74,7 @@ public class DS_Driver_Main {
 		p.o.println("Creating and populating linked list");
 		SinglyLinkedList<Integer> sll = new SinglyLinkedList<Integer>();
 		for(int i : inputs)
-			sll.insert(i);
+			sll.insertAtTail(i);
 		p.o.println(sll.traverse(null));
 		
 		sll.insertAfterValue(9, 256);

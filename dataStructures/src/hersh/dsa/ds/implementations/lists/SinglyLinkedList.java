@@ -13,7 +13,7 @@ public class SinglyLinkedList<T> implements List<T>{
 	private BiFunction<T, T, Boolean> infoEqualsLambda = (a,b) -> (a.equals(b));
 	private int totalElements = 0;
 	@Override
-	public AbstractNode<T> insert(T info) {
+	public AbstractNode<T> insertAtTail(T info) {
 		SinglyLinkedList_Node<T> nodeToBeAdded = new SinglyLinkedList_Node<T>(info);
 		if(rootNode!= null)
 		{
@@ -186,7 +186,7 @@ public class SinglyLinkedList<T> implements List<T>{
 	}
 
 	@Override
-	public AbstractNode<T> getRootNode() {
+	public AbstractNode<T> getHead() {
 		return (AbstractNode<T>) rootNode;
 	}
 
