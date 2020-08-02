@@ -213,6 +213,6 @@ public class SinglyLinkedList<T> implements List<T>{
 	public static void main(String args[])
 	{
 		p.o.whiteList();
-		DS_Driver_Main.main(args);
+		DS_Driver_Main.singlyLinkedList(15);
 	}
 }

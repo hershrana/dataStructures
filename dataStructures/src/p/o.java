@@ -2,6 +2,7 @@ package p;
 
 
 import java.util.HashSet;
+import java.util.Scanner;
 
 
 public class  o {
@@ -12,6 +13,7 @@ public class  o {
 	public final static int forceAllStop = 0;
 	public final static int controlledPrint = 2;
 	public static int currentMode = controlledPrint;
+	public static boolean enableWait = false;
 	public static int getCurrentMode() {
 		return currentMode;
 	}
@@ -126,5 +128,23 @@ public class  o {
 			}
 		}
 		}
+	}
+	
+	public static String debugBreak()
+	{
+		return debugBreak(enableWait);
+	}
+	@SuppressWarnings("resource")
+	public static String debugBreak(boolean wait)
+	{
+		if(!wait)
+		{
+			return "";
+		}
+		System.out.println("Press key to continue ...");
+		Scanner scanner = new Scanner(System. in);
+        String inputString = "scanner error";
+        inputString =	scanner. nextLine();
+        return inputString;
 	}
 }

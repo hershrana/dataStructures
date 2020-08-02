@@ -19,7 +19,7 @@ public class DS_Driver_Main {
 		}while(i<5000);
 	}
 	
-	static Object[] singlyLinkedList(int testWithArraySize)
+	public static Object[] singlyLinkedList(int testWithArraySize)
 	{
 		p.o.whiteList();
 		p.o.println("Creating and populating  list with array size "+testWithArraySize);
@@ -31,17 +31,17 @@ public class DS_Driver_Main {
 			sll.insertAtTail(testInputs[counter]);
 		}
 		p.o.println(" single list created and traversing here "+sll.traverse());
-		
+		p.o.debugBreak();
 		int testindex =p.u.getRandomIntegerMaxRange(testWithArraySize-1); // 4;// 
 		int offerVal =p.u.getRandomIntegerMaxRange(maxVal);//64;//p.u.getRandomIntegerMaxRange(maxVal);
 		sll.insertAfterValue(testInputs[testindex], offerVal);
 		p.o.println(" single list after sll.insertAfterValue("+testInputs[testindex]+", "+offerVal+") -> "+sll.traverse());
-		
+		p.o.debugBreak();
 		testindex = p.u.getRandomIntegerMaxRange(testWithArraySize-1);
 		offerVal  = testInputs[testindex];// 41;//testInputs[testindex];
 		sll.delete(offerVal);
 		p.o.println(" single list after sll.delete("+offerVal+") -> "+sll.traverse());
-		
+		p.o.debugBreak();
 		AbstractNode<Integer> node;
 		do
 		{
@@ -53,18 +53,18 @@ public class DS_Driver_Main {
 		
 		sll.delete(node);
 		p.o.println(" after removing node "+node+" -> "+sll);
-		
+		p.o.debugBreak();
 		offerVal = p.u.getRandomIntegerMaxRange(maxVal);
 		testindex = p.u.getRandomIntegerMaxRange(testWithArraySize-1);
 		sll.update(testInputs[testindex], offerVal);
 		p.o.println(" after sll.update("+testInputs[testindex]+", "+offerVal+")"+sll);
-		
+		p.o.debugBreak();
 		
 		offerVal = p.u.getRandomIntegerMaxRange(maxVal);
 		sll.insertAtTail(offerVal);
 		
 		p.o.println(" sll.insert("+offerVal+")"+sll);
-		
+		p.o.debugBreak();
 		return testInputs;
 	}
 	
