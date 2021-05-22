@@ -79,4 +79,22 @@ public class Index {
 		}
 		return null;
 	}
+	
+	public  Index inccrementBy(int add)
+	{
+		try
+		{
+		i += add;
+		return new Index(i, min ,max);
+		}
+		catch(Exception r)
+		{
+			r.printStackTrace();
+		}
+		return null;
+	}
+	public String toString()
+	{
+		return i.toString();
+	}
 }

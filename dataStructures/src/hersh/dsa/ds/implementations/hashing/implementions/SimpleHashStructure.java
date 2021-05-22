@@ -4,6 +4,7 @@ import java.util.function.Function;
 
 import hersh.dsa.ds.driver.Hashing_Driver;
 import hersh.dsa.ds.implementations.hashing.abstracts.Hash;
+import hersh.dsa.ds.implementations.lists.nodes.Index;
 import hersh.dsa.ds.interfaces.AbstractDataStrutcureInterface;
 
 public class SimpleHashStructure<K, T> extends Hash<K, T> {
@@ -28,8 +29,17 @@ public class SimpleHashStructure<K, T> extends Hash<K, T> {
 	public boolean put(K key, T info) {
 		try
 		{
-		hashLookUpArray.setElement(hashLookUpArray.getIndex(getHashLamba().apply(key)), info);
-		return true;
+			
+			Index proposedIndex = hashLookUpArray.getIndex(getHashLamba().apply(key));
+			p.o.println(proposedIndex);
+			if(! hashLookUpArray.isEmpty(proposedIndex))
+			{
+				p.o.println(" hash key collision detect override value with new put");
+				
+			}
+			hashLookUpArray.setElement(proposedIndex, info);
+			return true;
+		
 		}
 		catch(Exception e)
 		{
@@ -62,6 +72,11 @@ public class SimpleHashStructure<K, T> extends Hash<K, T> {
 		return null;
 	}
 	
+	@Override
+	public String toString()
+	{
+		return hashLookUpArray.toString();
+	}
 	
 	public static void main (String args[])
 	{

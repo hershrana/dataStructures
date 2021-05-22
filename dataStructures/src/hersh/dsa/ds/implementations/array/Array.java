@@ -64,6 +64,10 @@ public class Array<T> {
 		return array[index.getValue()];
 	}
 	
+	public boolean isEmpty(Index index)
+	{
+		return getElement(index) == null;
+	}
 	public void restructure()
 	{
 		int filled = 0;
@@ -76,18 +80,35 @@ public class Array<T> {
 		//p.o.debugBreak();
 		if(currentLoadFactor >= getLoadFactor())
 		{
-			
-			int newSize = ((int) (currentSize*autoSizeMultiplier))+1;
-			p.o.println(" Restructing array from "+currentSize+" to "+newSize);
-			T[] newArry = (T[]) new Object[newSize];
-			for(int count  = 0 ; count <currentSize;count++)
-				newArry[count] = array[count];
-			currentSize = newSize;
-			array = newArry;
-			System.gc();
-			p.o.println("Completed....");
-			p.o.debugBreak();
+			forceRestructure();
 		}
+	}
+	
+	public void forceRestructure()
+	{
+		int newSize = ((int) (currentSize*autoSizeMultiplier))+1;
+		p.o.println(" Restructing array from "+currentSize+" to "+newSize);
+		T[] newArry = (T[]) new Object[newSize];
+		for(int count  = 0 ; count <currentSize;count++)
+			newArry[count] = array[count];
+		currentSize = newSize;
+		array = newArry;
+		System.gc();
+		p.o.println("Completed....");
+		p.o.debugBreak();
+	}
+	
+	public boolean restructureRequired(Index index)
+	{
+		int filled = index.getValue();
+		double currentLoadFactor =  (double)filled/ (double)array.length;
+		p.o.println(" Load factor is "+currentLoadFactor);
+		//p.o.debugBreak();
+		if(currentLoadFactor >= getLoadFactor())
+		{
+			return true;
+		}
+		return false;
 	}
 	
 	public String toString()
